@@ -1,6 +1,5 @@
-import { DimensionState } from "../classes/Dimension";
 import { GeneralAttributes } from "./IGeneralAttributes";
-
+import { DimensionState } from "../types/DimensionState";
 /**
  * Representa los atributos que definen una Dimensión.
  * 
