@@ -19,7 +19,7 @@ export interface CharacterAttributes extends GeneralAttributes {
   state: string;
 
   /** Afiliación a la que pertenece el personaje (Ejemplo: Federación Galáctica, Consejo de Ricks, Familia Smith, Independiente).*/
-  affilation: string;
+  affiliation: string;
 
   /** Escala del 1 al 10 de la inteligencia del personaje. */
   inteligenceLevel: number;
