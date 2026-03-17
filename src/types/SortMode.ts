@@ -1,1 +1,1 @@
-export type SortMode ="name" | "intelligence" ;
+export type SortMode = "name" | "intelligence" ;

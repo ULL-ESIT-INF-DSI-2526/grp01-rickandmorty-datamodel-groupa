@@ -10,5 +10,4 @@ export interface IDataBase {
     inventions: Invention[];
     locations: Location[];
     species: Species[];
-
 }
