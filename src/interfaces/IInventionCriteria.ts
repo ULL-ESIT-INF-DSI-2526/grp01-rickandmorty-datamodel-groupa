@@ -1,4 +1,4 @@
-import { Character } from "../classes/Character";
+import { Character } from "../classes/Character.js";
 
 export interface IInventionCriteria {
     name?: string;

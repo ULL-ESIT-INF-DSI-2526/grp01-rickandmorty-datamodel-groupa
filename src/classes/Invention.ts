@@ -1,5 +1,5 @@
-import { InventionAttributes } from "../interfaces/IInventionAttributes";
-import { Character } from "./Character";
+import { InventionAttributes } from "../interfaces/IInventionAttributes.js";
+import { Character } from "./Character.js";
 
 export class Invention implements InventionAttributes {
   constructor(

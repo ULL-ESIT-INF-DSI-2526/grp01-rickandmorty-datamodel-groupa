@@ -1,5 +1,5 @@
-import { Character } from "../classes/Character";
-import { GeneralAttributes } from "./IGeneralAttributes";
+import { Character } from "../classes/Character.js";
+import { GeneralAttributes } from "./IGeneralAttributes.js";
 
 export interface InventionAttributes extends GeneralAttributes {
   inventor: Character;

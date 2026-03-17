@@ -1,5 +1,5 @@
-import { LocationAttributes } from "../interfaces/ILocationAttributes";
-import { Dimension } from "./Dimension";
+import { LocationAttributes } from "../interfaces/ILocationAttributes.js";
+import { Dimension } from "./Dimension.js";
 
 export class Location implements LocationAttributes {
   constructor(

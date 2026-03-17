@@ -1,5 +1,5 @@
-import { GeneralAttributes } from "./IGeneralAttributes";
-import { DimensionState } from "../types/DimensionState";
+import { GeneralAttributes } from "./IGeneralAttributes.js";
+import { DimensionState } from "../types/DimensionState.js";
 /**
  * Representa los atributos que definen una Dimensión.
  * 

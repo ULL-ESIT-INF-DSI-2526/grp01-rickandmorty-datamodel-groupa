@@ -1,5 +1,5 @@
-import { Dimension } from "../classes/Dimension";
-import { GeneralAttributes } from "./IGeneralAttributes";
+import { Dimension } from "../classes/Dimension.js";
+import { GeneralAttributes } from "./IGeneralAttributes.js";
 
 /**
  * Define los atributos específicos que componen a una especie dentro del multiverso.

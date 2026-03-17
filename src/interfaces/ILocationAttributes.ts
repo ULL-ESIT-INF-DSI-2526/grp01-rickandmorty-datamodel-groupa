@@ -1,5 +1,5 @@
-import { Dimension } from "../classes/Dimension";
-import { GeneralAttributes } from "./IGeneralAttributes";
+import { Dimension } from "../classes/Dimension.js";
+import { GeneralAttributes } from "./IGeneralAttributes.js";
 
 export interface LocationAttributes extends GeneralAttributes {
   dimension: Dimension;

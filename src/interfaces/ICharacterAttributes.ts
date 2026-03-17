@@ -1,6 +1,6 @@
-import { Dimension } from "../classes/Dimension";
-import { Species } from "../classes/Species";
-import { GeneralAttributes } from "./IGeneralAttributes";
+import { Dimension } from "../classes/Dimension.js";
+import { Species } from "../classes/Species.js";
+import { GeneralAttributes } from "./IGeneralAttributes.js";
 
 /**
  * Representa los atributos que definen a un Personaje.

@@ -1,13 +1,13 @@
-import { Location} from "../classes/Location";
-import { Invention } from "../classes/Invention";
-import { Species } from "../classes/Species";
-import { Dimension } from "../classes/Dimension";
-import { Character } from "../classes/Character";
-import { ICharacterCriteria } from "./ICharacterCriteria";
-import { ILocationCriteria } from "./ILocationCriteria";
-import { IInventionCriteria } from "./IInventionCriteria";
-import { SortMode } from "../types/SortMode";
-import { SortOrder } from "../types/SortOrder";
+import { Location} from "../classes/Location.js";
+import { Invention } from "../classes/Invention.js";
+import { Species } from "../classes/Species.js";
+import { Dimension } from "../classes/Dimension.js";
+import { Character } from "../classes/Character.js";
+import { ICharacterCriteria } from "./ICharacterCriteria.js";
+import { ILocationCriteria } from "./ILocationCriteria.js";
+import { IInventionCriteria } from "./IInventionCriteria.js";
+import { SortMode } from "../types/SortMode.js";
+import { SortOrder } from "../types/SortOrder.js";
 
 
 export interface ISearchElements  {

@@ -1,5 +1,5 @@
-import { Dimension } from "../classes/Dimension";
-import { Species } from "../classes/Species";
+import { Dimension } from "../classes/Dimension.js";
+import { Species } from "../classes/Species.js";
 
 export interface ICharacterCriteria {
     name?: string;

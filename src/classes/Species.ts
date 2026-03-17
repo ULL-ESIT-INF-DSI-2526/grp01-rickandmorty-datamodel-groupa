@@ -1,5 +1,5 @@
-import { SpeciesAttributes } from "../interfaces/ISpeciesAttributes";
-import { Dimension } from "./Dimension";
+import { SpeciesAttributes } from "../interfaces/ISpeciesAttributes.js";
+import { Dimension } from "./Dimension.js";
 
 /**
  * Representa una especie viva o entidad biológica dentro del sistema.

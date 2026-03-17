@@ -1,5 +1,5 @@
-import { DimensionAttributes } from "../interfaces/IDimensionAttributes";
-import { DimensionState } from "../types/DimensionState";
+import { DimensionAttributes } from "../interfaces/IDimensionAttributes.js";
+import { DimensionState } from "../types/DimensionState.js";
 
 /**
  * Clase que representa una dimensión en el multiverso

@@ -1,6 +1,6 @@
-import { CharacterAttributes } from "../interfaces/ICharacterAttributes";
-import { Dimension } from "./Dimension";
-import { Species } from "./Species";
+import { CharacterAttributes } from "../interfaces/ICharacterAttributes.js";
+import { Dimension } from "./Dimension.js";
+import { Species } from "./Species.js";
 
 export class Character implements CharacterAttributes {
   constructor(

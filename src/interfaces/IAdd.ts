@@ -1,8 +1,8 @@
-import { Location} from "../classes/Location";
-import { Invention } from "../classes/Invention";
-import { Species } from "../classes/Species";
-import { Dimension } from "../classes/Dimension";
-import { Character } from "../classes/Character";
+import { Location} from "../classes/Location.js";
+import { Invention } from "../classes/Invention.js";
+import { Species } from "../classes/Species.js";
+import { Dimension } from "../classes/Dimension.js";
+import { Character } from "../classes/Character.js";
 
 export interface IAdd {
     addDimension(new_dimension: Dimension): void;
