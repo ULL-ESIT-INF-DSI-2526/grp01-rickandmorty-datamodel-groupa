@@ -12,9 +12,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/node": "^25.5.0",
     "@typescript-eslint/eslint-plugin": "^8.56.0",
     "@typescript-eslint/parser": "^8.56.0",
     "@vitest/coverage-v8": "^4.0.18",
@@ -27,5 +28,9 @@
     "typedoc": "^0.28.17",
     "typescript-eslint": "^8.56.0",
     "vitest": "^4.0.18"
+  },
+  "dependencies": {
+    "lowdb": "^7.0.1",
+    "prompts": "^2.4.2"
   }
 }
