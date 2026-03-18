@@ -19,14 +19,6 @@ import { db } from "../database/database.js";
 
 //Falta implementar IModify
 export class MultiverseManager implements IAdd, IRemove, ISearchElements {
-    // dimensions: Dimension[] = [];
-    // locations: Location[] = [];
-    // characters: Character[] = [];
-    // species: Species[] = [];
-    // inventions: Invention[] = [];
-
-    // constructor(){}
-
     async addCharacter(new_character: Character) { 
         const exist = db.data.characters.some(c => c.id === new_character.id);
         const dimension_exist = db.data.dimensions.some(d => d.id === new_character.originDimension.id);
@@ -100,9 +92,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
     }
 
     searchCharacters(criteria: ICharacterCriteria, mode: SortMode, order: SortOrder): Character[] {
-        let characters = [];
-        if (db.data.characters.length === 0) characters = db.data.characters;
-        else return [];
+        let characters = db.data.characters;
 
         let found_characters: Character[] = [];     
 
@@ -128,9 +118,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
     }
 
     searchInventions(criteria: IInventionCriteria): Invention[] {
-        let inventions = [];
-        if (db.data.inventions.length === 0) inventions = db.data.inventions;
-        else return [];
+        let inventions = db.data.inventions;
         
         let found_inventions: Invention[] = [];
 
@@ -146,9 +134,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
     }
 
     searchLocations(criteria: ILocationCriteria): Location[] {
-        let locations = [];
-        if (db.data.locations.length === 0) locations = db.data.locations;
-        else return [];
+        let locations = db.data.locations;
         let found_locations: Location[] = [];
 
         found_locations = locations.filter(l => {
@@ -157,14 +143,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
             if (criteria.type && criteria.type != l.type) return false;
             return true;
         });
-
         return found_locations;
     }
     
     searchAlternativeLocationOfACharacter(name: string): Dimension[] {
-        let characters = [];
-        if (db.data.characters.length === 0) characters = db.data.characters;
-        else return [];
+        let characters = db.data.characters;
 
         let founded_dimensions: Dimension[] = [];
         let chars: Character[] = [];
@@ -173,6 +156,36 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
         chars.forEach(c => founded_dimensions.push(c.originDimension) );
 
         return founded_dimensions;
+    }
+
+    getDimensionReport(): void  {
+        const active = db.data.dimensions.filter((d) => { d.state.toLowerCase() === 'active'});
+        const repotr = active.map((d) => ({ "Id": d.id, "Tecnology Level": d.technologyLevel}));
+        console.log("Active Dimension Report");
+        console.table(repotr);
+        // return active.map((d) => { "id": d.id, "Tecnology Level": d.technologyLevel });
+    }
+
+    getInventionsReport(): void {
+        const dangerous = db.data.inventions.filter((d) => { d.dangerLevel > 5});
+        const report = dangerous.map((d) => ({ "id": d.id, "Dangerpus Level": d.dangerLevel, "Localization": d.inventor.originDimension }));
+        console.log("Most Dangerous Dimensions Report");
+        console.table(report);
+    }
+
+    getCharacterReport(): void {
+        const names: string[] = db.data.characters.map((c) => c.name);
+        const unique = new Set(names);
+        const result: [string, number][] = [];
+
+        unique.forEach((el) => {
+            const dim = this.searchAlternativeLocationOfACharacter(el);
+            result.push([el, dim.length]);
+        });
+
+        const report = result.filter((d) => d[1] > 1).map(([n, c]) => ({"Character": n, "Versions": c}));
+        console.log("Character Report");
+        console.table(report);
     }
 }
 
