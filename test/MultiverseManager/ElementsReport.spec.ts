@@ -14,8 +14,6 @@ describe('Elements Report Tests: ', () => {
     let specie: Species;
     let character: Character;
     let character_: Character;
-    let character2: Character;
-    let character3: Character;
     let location: Location;
     let location2: Location;
     let location3: Location;
@@ -34,33 +32,50 @@ describe('Elements Report Tests: ', () => {
 
         character = new Character("C-001", "Rick Sanchez", specie, dimension, "alive", "none", 10, "A genius scientist");
         character_ = new Character("C-0012", "Rick Sanchez", specie, dimension2, "alive", "none", 10, "A genius scientist");
-        character2 = new Character("C-002", "Morty Smith", specie, dimension, "alive", "none", 5, "Rick's grandson");
-        character3 = new Character("C-003", "Summer Smith", specie, dimension, "alive", "none", 6, "Morty's older sister");
 
         location = new Location("L-001", "Citadel of Ricks", dimension, "City", 1000000, "A city where all the Ricks live together.");
-        location2 = new Location("L-002", "Earth", dimension, "Planet", 7000000000, "The planet where most of the characters live.");
-        location3 = new Location("L-003", "Jerrybore", dimension, "Daycare center", 100, "A daycare center where Jerry works.");
 
-        invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location);
+        invention = new Invention("I-001", "Portal Gun", character, "Gadget", 6, "A device that allows to travel between dimensions", location);
         invention2 = new Invention("I-002", "SpaceShip", character, "Vehicle", 9, "A spaceship that allows to travel through space", location);
         invention3 = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location);
         
-        travel = new Travel("T-001", dimension, dimension2, character2, new Date(2026, 3, 3, 14, 34, 0), "Searching Rick");
+        travel = new Travel("T-001", dimension, dimension2, character, new Date(2026, 3, 3, 14, 34, 0), "Searching Rick");
+        
         multiverseManager.addDimension(dimension);
+        multiverseManager.addDimension(dimension2);
+        multiverseManager.addSpecie(specie);
+        multiverseManager.addLocation(location);
+        multiverseManager.addCharacter(character);
+        multiverseManager.addCharacter(character_);
+        multiverseManager.addInvention(invention);
+        multiverseManager.addInvention(invention2);
+        multiverseManager.addTravel(travel);
     });
 
     describe('Active Dimension Report', () => {
-        test('Mostrar id y technology level de las dimensiones activas', () => {
+        test('Dimensiones Activas', () => {
             expect(multiverseManager.getDimensionReport()).toContain("Id: C-137, Tecnology Level: 5");
         });
     });
 
     describe('Most Dangerous Inventions Report', () => {
         test('Mas peligrosos que 5', () => {
-            // expect(multiverseManager.getInventionsReport(5)).toContain("Id: D-001, Tecnology Level: 7");
+            expect(multiverseManager.getInventionsReport(5)).toContain("Id: I-001, DangerousLevel: 6");
         });
         test('Mas peligrosos que 7', () => {
-            // expect(multiverseManager.getInventionsReport(5)).toContain("Id: D-001, Tecnology Level: 7");
+            expect(multiverseManager.getInventionsReport(7)).toContain("Id: I-002, DangerousLevel: 9");
+        });
+    });
+
+    describe('Alternative Dimension Character Report', () => {
+        test('Varias dimensiones', () => {
+            expect(multiverseManager.getCharacterReport()).toContain("Character: Rick Sanchez,  Number of versions: 2");
+        });
+    });
+
+    describe('Travel History report', () => {
+        test('Viajes', () => {
+            expect(multiverseManager.getTravelHistoryReport(character)).toContain(`Travel: T-001, Character: ${character}`);
         });
     });
 });

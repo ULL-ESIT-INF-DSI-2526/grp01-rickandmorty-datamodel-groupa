@@ -265,8 +265,6 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return founded_dimensions;
     }
 
-    
-
     getDimensionReport():string {
         const active = this._dimensions.filter((d) => d.state.toLowerCase() === 'active');
         const report = active.map((d) => ({ "Id": d.id, "TechnologyLevel": d.technologyLevel}));
@@ -284,7 +282,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         const report = dangerous.map((d) => ({ "Id": d.id, "DangerousLevel": d.dangerLevel, "Localization": d.inventionLocation }));
         let str: string = "";
         report.forEach((el) => {
-            str += `Id: ${el.Id}, DangerousLevel: ${el.DangerousLevel}, Localization: ${el.Localization}`;
+            str += `Id: ${el.Id}, DangerousLevel: ${el.DangerousLevel}, Localization: ${el.Localization} \n`;
         });
         console.log("Most Dangerous Dimensions Report");
         console.table(report);
