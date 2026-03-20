@@ -2,7 +2,7 @@ import { describe, test, expect, beforeEach } from 'vitest';
 import { Character } from '../../src/classes/Character.js';
 import { Dimension } from '../../src/classes/Dimension.js';
 import { Species } from '../../src/classes/Species.js';
-import { Invention } from '.'
+import { Invention } from '../../src/classes/Invention.js';
 import { Location } from '../../src/classes/Location.js';
 import { Travel } from '../../src/classes/Travel.js';
 import { MultiverseManager } from '../../src/classes/MultiverseManager.js';
@@ -46,7 +46,7 @@ describe('Elements Report Tests: ', () => {
         invention3 = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location);
         
         travel = new Travel("T-001", dimension, dimension2, character2, new Date(2026, 3, 3, 14, 34, 0), "Searching Rick");
-  
+        multiverseManager.addDimension(dimension);
     });
 
     describe('Active Dimension Report', () => {
