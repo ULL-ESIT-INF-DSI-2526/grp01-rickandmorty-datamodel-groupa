@@ -183,15 +183,19 @@ addCharacter(new_character: Character) {
     }
 
     getDimensionReport():string {
-        const active = this.dimensions.filter((d) => { d.state.toLowerCase() === 'active'});
-        const repotr = active.map((d) => ({ "Id": d.id, "Tecnology Level": d.technologyLevel}));
+        const active = this._dimensions.filter((d) => { d.state.toLowerCase() === 'active'});
+        const report = active.map((d) => ({ "Id": d.id, "TechnologyLevel": d.technologyLevel}));
+        let str: string = "";
+        report.forEach((el) => {
+            str += `Id: ${el.Id}, Tecnology Level: ${el.TechnologyLevel}`;
+        });
         console.log("Active Dimension Report");
-        console.table(repotr);
-        return `Id: ${d.id}`;
+        console.table(report);
+        return str;
     }
 
     getInventionsReport(danger: number) {
-        const dangerous = this.inventions.filter((d) => { d.dangerLevel > danger});
+        const dangerous = this._inventions.filter((d) => { d.dangerLevel > danger});
         const report = dangerous.map((d) => ({ "id": d.id, "Dangerpus Level": d.dangerLevel, "Localization": d.inventor.originDimension }));
         console.log("Most Dangerous Dimensions Report");
         console.table(report);
@@ -199,7 +203,7 @@ addCharacter(new_character: Character) {
     }
 
     getCharacterReport() {
-        const names: string[] = this.characters.map((c) => c.name);
+        const names: string[] = this._characters.map((c) => c.name);
         const unique = new Set(names);
         const result: [string, number][] = [];
 
