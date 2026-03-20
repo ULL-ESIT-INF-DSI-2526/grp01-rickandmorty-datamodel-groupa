@@ -5,7 +5,6 @@ import { Species } from '../../src/classes/Species.js';
 import { Location } from '../../src/classes/Location.js';
 import { Invention } from '../../src/classes/Invention.js';
 import { MultiverseManager } from '../../src/classes/MultiverseManager.js';
-import { db } from '../../src/database/database.js';
 
 describe('Search Elements Tests:', () => {
   const dimension: Dimension = new Dimension("C-137", "Earth", "active", 5, "The original dimension");
@@ -112,7 +111,7 @@ describe('Search Elements Tests:', () => {
       expect(result[0].id).toBe(location.id);
       expect(result[1].id).toBe(location2.id);
       expect(result[2].id).toBe(location3.id);
-    });
+    }); 
 
     test("Buscar una localización por todos sus atributos", () => {
       const result = multiverseManager.searchLocations({name: "Citadel of Ricks", dimension: dimension, type: "City"});

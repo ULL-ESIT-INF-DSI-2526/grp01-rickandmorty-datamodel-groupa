@@ -1,5 +1,6 @@
 import { Dimension } from "../classes/Dimension.js";
 import { Species } from "../classes/Species.js";
+import { CharacterState } from "../types/CharacterState.js";
 import { GeneralAttributes } from "./IGeneralAttributes.js";
 
 /**
@@ -16,7 +17,7 @@ export interface CharacterAttributes extends GeneralAttributes {
   originDimension: Dimension;
 
   /** Estado en el que se encuentra el personaje (Ejemplo: Vivo, Muerto, Desconocido, Robot-sustituto).*/
-  state: string;
+  state: CharacterState;
 
   /** Afiliación a la que pertenece el personaje (Ejemplo: Federación Galáctica, Consejo de Ricks, Familia Smith, Independiente).*/
   affiliation: string;

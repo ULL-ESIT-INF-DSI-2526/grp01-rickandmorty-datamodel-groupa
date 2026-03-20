@@ -5,6 +5,7 @@ import { IAdd } from "../interfaces/IAdd.js";
 import { IRemove } from "../interfaces/IRemove.js";
 import { IModify } from "../interfaces/IModify.js";
 import { Dimension } from "./Dimension.js";
+import { DimensionState } from "../types/DimensionState.js";
 import { Location } from "./Location.js";
 import { Invention } from "./Invention.js";
 import { Character } from "./Character.js";
@@ -14,85 +15,108 @@ import { SortMode } from "../types/SortMode.js";
 import { SortOrder } from "../types/SortOrder.js";
 import { IInventionCriteria } from "../interfaces/IInventionCriteria.js";
 import { ILocationCriteria } from "../interfaces/ILocationCriteria.js";
-import { JSONFilePreset } from "lowdb/node";
-import { db } from "../database/database.js";
 
-//Falta implementar IModify
 export class MultiverseManager implements IAdd, IRemove, ISearchElements {
-    async addCharacter(new_character: Character) { 
-        const exist = db.data.characters.some(c => c.id === new_character.id);
-        const dimension_exist = db.data.dimensions.some(d => d.id === new_character.originDimension.id);
-        const specie_exist = db.data.species.some(s => s.id === new_character.species.id);
+    private _characters: Character[];
+    private _dimensions: Dimension[];
+    private _species: Species[];
+    private _inventions: Invention[];
+    private _locations: Location[];
 
-        if (exist) throw new Error(`Character with id ${new_character.id} already exists.`);
-        if (!dimension_exist) throw new Error("The dimension of the location doesn't exist.");
-        if (!specie_exist) throw new Error("The specie of the character doesn't exist.");
+    constructor() {
+        this._characters = [];
+        this._dimensions = [];
+        this._species = [];
+        this._inventions = [];
+        this._locations = [];
+    } 
+
+    get dimensions(): Dimension[] { return this._dimensions; }
+    get characters(): Character[] { return this._characters; }
+    get species(): Species[] { return this._species; }
+    get inventions(): Invention[] {return this._inventions; }
+    get locations(): Location[] { return this._locations; }
+
+addCharacter(new_character: Character) { 
+        const exist = this.characters.some(c => c.id === new_character.id);
+        const dimension_exist = this._dimensions.some(d => d.id === new_character.originDimension.id);
+        const specie_exist = this.species.some(s => s.id === new_character.species.id);
+
+        if (exist) throw new Error(`El personaje con id ${new_character.id} ya existe.`);
+        if (!dimension_exist) throw new Error("La dimensión de origen del personaje no existe.");
+        if (!specie_exist) throw new Error("La especie del personaje no existe.");
         
-        db.data.characters.push(new_character);
-        await db.write();
+        this._characters.push(new_character);
     }
 
-    async addDimension(new_dimension: Dimension) { 
-        const exist = db.data.dimensions.some(d => d.id === new_dimension.id);
-        if (exist) throw new Error(`Dimension with id ${new_dimension.id} already exists.`);
-        db.data.dimensions.push(new_dimension);
-        await db.write(); 
+    addDimension(new_dimension: Dimension) { 
+        const exist = this._dimensions.some(d => d.id === new_dimension.id);
+        if (exist) throw new Error(`La dimensión con id ${new_dimension.id} ya existe.`);
+        this._dimensions.push(new_dimension);
     }
 
-    async addInvention(new_invention: Invention) { 
-        const exist = db.data.inventions.some(i => i.id === new_invention.id);
-        const inventor_exist = db.data.characters.some(c => c.id === new_invention.inventor.id);
-        if (exist) throw new Error(`Invention with id ${new_invention.id} already exists.`);
-        if (!inventor_exist) throw new Error ("The inventor of the invention doesn't exist.");
-        db.data.inventions.push(new_invention);
-        await db.write();
+    addInvention(new_invention: Invention) { 
+        const exist = this._inventions.some(i => i.id === new_invention.id);
+        const inventor_exist = this._characters.some(c => c.id === new_invention.inventor.id);
+        if (exist) throw new Error(`El invento con id ${new_invention.id} ya existe.`);
+        if (!inventor_exist) throw new Error("El inventor del invento no existe.");
+        this._inventions.push(new_invention);
     }
 
-    async addLocation(new_location: Location) {
-        const exist = db.data.locations.some(l => l.id === new_location.id);
-        const dimension_exist = db.data.dimensions.some(d => d.id === new_location.dimension.id);
-        if (exist) throw new Error(`Location with id ${new_location.id} already exists.`);
-        if (!dimension_exist) throw new Error("The dimension of the location doesn't exist.");
-        db.data.locations.push(new_location);
-        await db.write();
+    addLocation(new_location: Location) {
+        const exist = this._locations.some(l => l.id === new_location.id);
+        const dimension_exist = this._dimensions.some(d => d.id === new_location.dimension.id);
+        if (exist) throw new Error(`La ubicación con id ${new_location.id} ya existe.`);
+        if (!dimension_exist) throw new Error("La dimensión de la ubicación no existe.");
+        this._locations.push(new_location);
     }
     
-    async addSpecie(new_specie: Species) {
-        const exist = db.data.species.some(s => s.id === new_specie.id);
-        const dimension_exist = db.data.dimensions.some(d => d.id === new_specie.origin.id);
-        if (!dimension_exist) throw new Error("The origin dimension of the specie doesn't exist.");
-        if (exist) throw new Error(`Specie with id ${new_specie.id} already exists.`);
-        db.data.species.push(new_specie);
-        await db.write();
+    addSpecie(new_specie: Species) {
+        const exist = this._species.some(s => s.id === new_specie.id);
+        const dimension_exist = this._dimensions.some(d => d.id === new_specie.origin.id);
+        if (!dimension_exist) throw new Error("La dimensión de origen de la especie no existe.");
+        if (exist) throw new Error(`La especie con id ${new_specie.id} ya existe.`);
+        this._species.push(new_specie);
     }
 
-    async removeCharacter(id: string) { 
-        db.data.characters = db.data.characters.filter(c => c.id != id);
-        await db.write();
+    removeCharacter(id: string) { 
+        this._characters.map(c => {
+            if (c.id == id) c.state = 'dead';
+        });
     }
 
-    async removeDimension(id: string) { 
-        db.data.dimensions = db.data.dimensions.filter(d => d.id != id);
-        await db.write();
+    removeDimension(id: string) { 
+        this._dimensions.map(d => {
+            if (d.id == id) d.state = 'destroyed';
+        });
+        this._locations = this._locations.filter(l => l.dimension.id != id );
     }
 
-    async removeInvention(id: string) { 
-        db.data.inventions = db.data.inventions.filter(i => i.id != id);
-        await db.write();
+    removeInvention(id: string) { 
+        this._inventions = this._inventions.filter(i => i.id != id);
     }
     
-    async removeLocation(id: string) { 
-        db.data.locations = db.data.locations.filter(l => l.id != id);
-        await db.write();
+    removeLocation(id: string) { 
+        this._locations = this._locations.filter(l => l.id != id);
     }
     
-    async removeSpecie(id: string) { 
-        db.data.species = db.data.species.filter(s => s.id != id);
-        await db.write();
+    removeSpecie(id: string) { 
+        this._species = this._species.filter(s => s.id != id);
+        this._characters = this._characters.filter(c => c.species.id != id);        
     }
+
+    // modifyCharacter(id: string, modifyAttributes: Partial<CharacterAttributes>): void {
+    //     const found_character = this._characters.find(c => c.id == id);
+    //     if (!found_character) throw new Error ('El personaje que desea cambiar no se encuentra en la colección');
+        
+    //     if (modifyAttributes.species !== undefined) found_character.species = modifyAttributes.species;
+    //     if (modifyAttributes.state != undefined ) found_characted.state = modifyAttributes.state;
+    //     if (modifyAttributes.originDimension != undefined ) found_character.originDimension = modifyAttributes.originDimension;
+    //     if (modifyAttributes.o)
+    // }
 
     searchCharacters(criteria: ICharacterCriteria, mode: SortMode, order: SortOrder): Character[] {
-        let characters = db.data.characters;
+        let characters = this.characters;
 
         let found_characters: Character[] = [];     
 
@@ -118,7 +142,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
     }
 
     searchInventions(criteria: IInventionCriteria): Invention[] {
-        let inventions = db.data.inventions;
+        let inventions = this.inventions;
         
         let found_inventions: Invention[] = [];
 
@@ -134,7 +158,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
     }
 
     searchLocations(criteria: ILocationCriteria): Location[] {
-        let locations = db.data.locations;
+        let locations = this.locations;
         let found_locations: Location[] = [];
 
         found_locations = locations.filter(l => {
@@ -147,7 +171,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
     }
     
     searchAlternativeLocationOfACharacter(name: string): Dimension[] {
-        let characters = db.data.characters;
+        let characters = this._characters;
 
         let founded_dimensions: Dimension[] = [];
         let chars: Character[] = [];
@@ -158,23 +182,24 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
         return founded_dimensions;
     }
 
-    getDimensionReport(): void  {
-        const active = db.data.dimensions.filter((d) => { d.state.toLowerCase() === 'active'});
+    getDimensionReport():string {
+        const active = this.dimensions.filter((d) => { d.state.toLowerCase() === 'active'});
         const repotr = active.map((d) => ({ "Id": d.id, "Tecnology Level": d.technologyLevel}));
         console.log("Active Dimension Report");
         console.table(repotr);
-        // return active.map((d) => { "id": d.id, "Tecnology Level": d.technologyLevel });
+        return `Id: ${d.id}`;
     }
 
-    getInventionsReport(): void {
-        const dangerous = db.data.inventions.filter((d) => { d.dangerLevel > 5});
+    getInventionsReport(danger: number) {
+        const dangerous = this.inventions.filter((d) => { d.dangerLevel > danger});
         const report = dangerous.map((d) => ({ "id": d.id, "Dangerpus Level": d.dangerLevel, "Localization": d.inventor.originDimension }));
         console.log("Most Dangerous Dimensions Report");
         console.table(report);
+        return report;
     }
 
-    getCharacterReport(): void {
-        const names: string[] = db.data.characters.map((c) => c.name);
+    getCharacterReport() {
+        const names: string[] = this.characters.map((c) => c.name);
         const unique = new Set(names);
         const result: [string, number][] = [];
 
@@ -186,6 +211,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements {
         const report = result.filter((d) => d[1] > 1).map(([n, c]) => ({"Character": n, "Versions": c}));
         console.log("Character Report");
         console.table(report);
+        return report;
     }
 }
 

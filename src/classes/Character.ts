@@ -1,4 +1,5 @@
 import { CharacterAttributes } from "../interfaces/ICharacterAttributes.js";
+import { CharacterState } from "../types/CharacterState.js";
 import { Dimension } from "./Dimension.js";
 import { Species } from "./Species.js";
 
@@ -8,7 +9,7 @@ export class Character implements CharacterAttributes {
     public name: string,
     public species: Species,
     public originDimension: Dimension,
-    public state: string,
+    public state: CharacterState,
     public affiliation: string,
     public inteligenceLevel: number,
     public description: string
