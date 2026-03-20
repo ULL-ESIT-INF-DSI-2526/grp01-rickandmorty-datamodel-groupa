@@ -14,6 +14,7 @@ describe('Remove Elements Tests:', () => {
   let character: Character;
   let location: Location;
   let invention: Invention;
+  let travel: Travel;
 
   beforeEach(() => {
     dimension = new Dimension("C-137", "Earth", "active", 5, "The original dimension");
@@ -22,6 +23,7 @@ describe('Remove Elements Tests:', () => {
     character = new Character("C-001", "Rick Sanchez", specie, dimension, "alive", "none", 10, "A genius scientist");
     location = new Location("L-001", "Citadel of Ricks", dimension, "City", 1000000, "A city where all the Ricks live together.");
     invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location);
+    travel = new Travel("T-001", dimension, dimension, character, new Date(2026, 3, 3, 14, 34, 0), "ocio");
   });
 
   // pruebas de eliminar dimensiones de la base de datos
@@ -85,6 +87,19 @@ describe('Remove Elements Tests:', () => {
       const size = multiverseManager.locations.length;
       multiverseManager.removeLocation(location.id);
       expect(multiverseManager.locations.length).toBe(size - 1);
+    });
+  });
+
+  // eliminar un viaje
+  describe('Metodo removeTravel', () => {
+    test('Eliminar un viaje', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.addTravel(travel);
+      const size = multiverseManager.travels.length;
+      multiverseManager.removeTravel(travel.id);
+      expect(multiverseManager.travels.length).toBe(size - 1);
     });
   });
 });    

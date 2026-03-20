@@ -5,6 +5,7 @@ import { Species } from '../../src/classes/Species.js';
 import { Location } from '../../src/classes/Location.js';
 import { Invention } from '../../src/classes/Invention.js';
 import { MultiverseManager } from '../../src/classes/MultiverseManager.js';
+import  { Travel } from '../../src/classes/Travel.js';
 
 describe('Search Elements Tests:', () => {
   const dimension: Dimension = new Dimension("C-137", "Earth", "active", 5, "The original dimension");
@@ -21,7 +22,7 @@ describe('Search Elements Tests:', () => {
   const invention: Invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location);
   const invention2: Invention = new Invention("I-002", "SpaceShip", character, "Vehicle", 9, "A spaceship that allows to travel through space", location);
   const invention3: Invention = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location);
-
+  const travel: Travel = new Travel("T-001", dimension, dimension2, character, new Date(2026, 3, 3, 14, 34, 0), "ocio");
   // pruebas para buscar personajes
   describe('Metodo searchCharacters', () => {
     test('Buscar un personaje por su nombre', () => {
@@ -129,6 +130,16 @@ describe('Search Elements Tests:', () => {
       expect(result.length).toBe(2);
       expect(result[0].id).toBe(dimension.id);
       expect(result[1].id).toBe(dimension2.id);
+    });
+  });
+
+  // pruebas de busqueda de viajes
+  describe('Método de searchTravel', () => {
+    test('Buscar viajes', () => {
+      multiverseManager.addTravel(travel);
+      const result = multiverseManager.searchTravel({originDimension: dimension});
+      expect(result.length).toBe(1);
+      expect(result[0].id).toBe(travel.id);
     });
   });
 });
