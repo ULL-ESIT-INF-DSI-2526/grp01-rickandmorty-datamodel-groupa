@@ -5,7 +5,7 @@ import { Dimension } from "../src/classes/Dimension.js";
 
 describe('Location Tests:', () => {
   const dimension = new Dimension('D-001', 'Dimension-1', 'active', 7, 'Dimension con 1990 planetas');
-  const location = new Location('L-001', 'location-1', dimension, 'Planeta', 300000000, 'Gran planeta verde');
+  const location = new Location('L-001', 'location-1', dimension, 'Planeta', 300000000,'Gran planeta verde');
  
   describe('Creacion de la clase',() => {
     test('La clase se creo correctamente.', ()=> {

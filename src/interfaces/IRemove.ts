@@ -4,4 +4,5 @@ export interface IRemove {
     removeCharacter(id: string): void;
     removeSpecie(id: string): void;
     removeInvention(id: string): void;
+    removeTravel(id: string): void;
 }

@@ -1,8 +1,8 @@
-import { DimensionAttributes } from "./IDimensionAttributes.js";
-import { InventionAttributes } from "./IInventionAttributes.js";
-import { CharacterAttributes } from "./ICharacterAttributes.js";
-import { SpeciesAttributes } from "./ISpeciesAttributes.js";
-import { LocationAttributes } from "./ILocationAttributes.js";
+import { DimensionAttributes } from "./Attributes/IDimensionAttributes.js";
+import { InventionAttributes } from "./Attributes/IInventionAttributes.js";
+import { CharacterAttributes } from "./Attributes/ICharacterAttributes.js";
+import { SpeciesAttributes } from "./Attributes/ISpeciesAttributes.js";
+import { LocationAttributes } from "./Attributes/ILocationAttributes.js";
 
 export interface IModify {
     modifyDimension(id: string, modifyAttributes: Partial<DimensionAttributes>): void;

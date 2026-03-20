@@ -17,7 +17,7 @@ describe('Travel Tests:', () => {
     dimensionO = new Dimension('C-137', 'Andromeda', 'active', 7, 'Dimensión de origen de Rick Sánchez');
     species= new Species("S-001", "Humano", dimensionO, "Mammal", 80, "La especie más común en el universo");
     Rick = new Character("C-001", "Rick Sanchez", species, dimensionO, "alive", "none", 10, "A genius scientist with a reckless personality");
-    travel = new Travel(dimensionO, dimensionD, Rick, new Date('2026-03-20T15:30:00'), 'ocio');
+    travel = new Travel('T-001', dimensionO, dimensionD, Rick, new Date('2026-03-20T15:30:00'), 'ocio');
   });
 
   describe('Creacion de la clase',() => {
@@ -31,6 +31,10 @@ describe('Travel Tests:', () => {
   });
   
   describe('Atributos de la clase:', () => {
+    test('id', ()=> {
+      expect(travel.id).toBe('T-001');
+    });
+
     test('originDimension', ()=> {
       expect(travel.originDimension.id).toBe('C-137');
     });  

@@ -4,6 +4,7 @@ import { Dimension } from '../../src/classes/Dimension.js';
 import { Species } from '../../src/classes/Species.js';
 import { Location } from '../../src/classes/Location.js';
 import { Invention } from '../../src/classes/Invention.js';
+import { Travel } from '../../src/classes/Travel.js';
 import { MultiverseManager } from '../../src/classes/MultiverseManager.js';
 
 describe('Remove Elements Tests:', () => {
@@ -20,7 +21,7 @@ describe('Remove Elements Tests:', () => {
     multiverseManager = new MultiverseManager();
     character = new Character("C-001", "Rick Sanchez", specie, dimension, "alive", "none", 10, "A genius scientist");
     location = new Location("L-001", "Citadel of Ricks", dimension, "City", 1000000, "A city where all the Ricks live together.");
-    invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions");
+    invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location);
   });
 
   // pruebas de eliminar dimensiones de la base de datos
@@ -48,7 +49,7 @@ describe('Remove Elements Tests:', () => {
       expect(multiverseManager.characters.length).toBe(0);
     });
   });
-
+ 
   // pruebas de eliminar personajes de la base de datos
   describe('Metodo removeCharacter', () => {
     test('Eliminar un personaje', () => {

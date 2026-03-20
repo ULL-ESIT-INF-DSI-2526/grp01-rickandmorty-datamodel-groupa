@@ -1,4 +1,4 @@
-import { Dimension } from "../classes/Dimension.js";
+import { Dimension } from "../../classes/Dimension.js";
 
 export interface ILocationCriteria {
     name?: string;

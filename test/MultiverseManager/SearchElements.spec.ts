@@ -18,9 +18,9 @@ describe('Search Elements Tests:', () => {
   const location: Location = new Location("L-001", "Citadel of Ricks", dimension, "City", 1000000, "A city where all the Ricks live together.");
   const location2: Location = new Location("L-002", "Earth", dimension, "Planet", 7000000000, "The planet where most of the characters live.");
   const location3: Location = new Location("L-003", "Jerrybore", dimension, "Daycare center", 100, "A daycare center where Jerry works.");
-  const invention: Invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions");
-  const invention2: Invention = new Invention("I-002", "SpaceShip", character, "Vehicle", 9, "A spaceship that allows to travel through space");
-  const invention3: Invention = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle");
+  const invention: Invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location);
+  const invention2: Invention = new Invention("I-002", "SpaceShip", character, "Vehicle", 9, "A spaceship that allows to travel through space", location);
+  const invention3: Invention = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location);
 
   // pruebas para buscar personajes
   describe('Metodo searchCharacters', () => {

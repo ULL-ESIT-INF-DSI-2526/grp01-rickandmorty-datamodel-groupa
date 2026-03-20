@@ -1,5 +1,5 @@
-import { Character } from "../classes/Character.js";
-import { Dimension } from "../classes/Dimension.js";
+import { Character } from "../../classes/Character.js";
+import { Dimension } from "../../classes/Dimension.js";
 
 export interface TravelAttributes {
   originDimension: Dimension;

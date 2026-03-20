@@ -15,6 +15,7 @@ export class Travel implements TravelAttributes {
    * @param motive 
    */
   constructor(
+    public id: string,
     public originDimension: Dimension,
     public destinyDimension: Dimension,
     public character: Character,
