@@ -7,7 +7,7 @@
     "start": "tsc-watch --onSuccess \"node dist/index.js\"",
     "doc": "typedoc",
     "test": "vitest run",
-    "coverage": "vitest run --coverage --coverage.include \"src/**/*.ts\""
+    "coverage": "vitest run --coverage --coverage.include \"src/**/*.ts\" --coverage.exclude \"src/menu_prompt/*\" --coverage.exclude \"src/database/*\" --coverage.exclude \"src/main.ts\""
   },
   "keywords": [],
   "author": "",
