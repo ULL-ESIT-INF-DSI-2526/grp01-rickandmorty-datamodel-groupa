@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Travel } from "../../classes/Travel.js";
 
+/**
+ * Método para agregar un nuevo viaje al multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la adición.
+ */
 export async function menuAddTravel(multiverseManager: MultiverseManager) {
   const data = await prompts([
     { type: 'text', name: 'id', message: 'ID del viaje:' },

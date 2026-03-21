@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Location } from "../../classes/Location.js";
 
+/**
+ * Método para eliminar una localización del multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la eliminación.
+ */
 export async function menuRemoveLocation(multiverseManager: MultiverseManager) {
     const locationId = await prompts({
         type: "text",

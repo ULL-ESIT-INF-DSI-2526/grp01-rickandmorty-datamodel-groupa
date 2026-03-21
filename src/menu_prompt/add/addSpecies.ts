@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Species } from "../../classes/Species.js";
 
+/**
+ * Método para agregar una nueva especie al multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la adición.
+ */
 export async function menuAddSpecies(multiverseManager: MultiverseManager) {
   const data = await prompts([
     { type: 'text', name: 'id', message: 'ID de la especie:' },

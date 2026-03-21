@@ -3,6 +3,10 @@ import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Species } from "../../classes/Species.js";
 import { SpeciesAttributes } from "../../interfaces/Attributes/ISpeciesAttributes.js";
 
+/**
+ * Método para modificar una especie del multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la modificación.
+ */
 export async function menuModifySpecies(multiverseManager: MultiverseManager) {
     const data = await prompts([
         { type: 'text', name: 'id', message: 'ID de la especie a modificar:' },

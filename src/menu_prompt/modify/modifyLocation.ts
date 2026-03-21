@@ -3,6 +3,10 @@ import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Location } from "../../classes/Location.js";
 import { LocationAttributes } from "../../interfaces/Attributes/ILocationAttributes.js";
 
+/**
+ * Método para modificar una localización del multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la modificación.
+ */
 export async function menuModifyLocation(multiverseManager: MultiverseManager) {
     const data = await prompts([
         { type: 'text', name: 'id', message: 'ID de la localización a modificar:' },

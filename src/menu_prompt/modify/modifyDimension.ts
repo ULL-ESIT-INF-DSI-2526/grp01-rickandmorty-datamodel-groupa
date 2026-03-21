@@ -3,6 +3,10 @@ import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Dimension } from "../../classes/Dimension.js";
 import { DimensionAttributes } from "../../interfaces/Attributes/IDimensionAttributes.js";
 
+/**
+ * Método para modificar una dimensión del multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la modificación.
+ */
 export async function menuModifyDimension(multiverseManager: MultiverseManager) {
     const data = await prompts([
         { type: 'text', name: 'id', message: 'ID de la dimensión a modificar:' },

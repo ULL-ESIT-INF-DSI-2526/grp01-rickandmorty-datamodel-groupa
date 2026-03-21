@@ -3,9 +3,13 @@ import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Character } from "../../classes/Character.js";
 import { CharacterAttributes } from "../../interfaces/Attributes/ICharacterAttributes.js";
 
+/**
+ * Método para modificar un personaje del multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la modificación.
+ */
 export async function menuModifyCharacter(multiverseManager: MultiverseManager) {
     const data = await prompts([
-        { type: 'text', name: 'id', message: 'ID de la dimensión a modificar:' },
+        { type: 'text', name: 'id', message: 'ID del personaje a modificar:' },
         { type: 'select',
             name: 'species',
             message: 'Selecciona la nueva especie del personaje:',

@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Location } from "../../classes/Location.js";
 
+/**
+ * Método para buscar ubicaciones en el multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la búsqueda.
+ */
 export async function menuSearchLocation(multiverseManager: MultiverseManager) {
   const criteria = await prompts([
     { type: 'text', name: 'name', message: 'Nombre de la localización:' },

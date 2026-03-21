@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Location } from "../../classes/Location.js";
 
+/**
+ * Método para agregar una nueva localización al multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la adición.
+ */
 export async function menuAddLocation(multiverseManager: MultiverseManager) {
   const data = await prompts([
     { type: 'text', name: 'id', message: 'ID de la localización:' },

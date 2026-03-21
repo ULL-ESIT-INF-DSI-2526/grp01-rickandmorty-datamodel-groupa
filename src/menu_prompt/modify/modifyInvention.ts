@@ -4,9 +4,13 @@ import { InventionAttributes } from "../../interfaces/Attributes/IInventionAttri
 import { Location } from "../../classes/Location.js";
 import { Invention } from "../../classes/Invention.js";
 
+/**
+ * Método para modificar un invento del multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la modificación.
+ */
 export async function menuModifyInvention(multiverseManager: MultiverseManager) {
     const data = await prompts([
-        { type: 'text', name: 'id', message: 'ID de la dimensión a modificar:' },
+        { type: 'text', name: 'id', message: 'ID del invento a modificar:' },
         { type: 'text', name: 'inventor', message: 'Nuevo inventor del artefacto:' },
         { type: 'text', name: 'type', message: 'Nuevo tipo del artefacto:' },
         { type: 'text', name: 'dangerLevel', message: 'Nuevo nivel de peligro del artefacto:' },

@@ -2,6 +2,10 @@ import prompts from "prompts";
 import {Character} from '../../classes/Character.js';
 import {MultiverseManager} from '../../classes/MultiverseManager.js';
 
+/**
+ * Método para buscar personajes en el multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la búsqueda.
+ */
 export async function menuSearchCharacter(multiverseManager: MultiverseManager) {
     const criteria = await prompts([
         { type: 'text', name: 'name', message: 'Nombre del personaje:' },

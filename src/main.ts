@@ -36,6 +36,10 @@ import { menuDimensionReport } from './menu_prompt/report/dimensionReport.js';
 import { menuInventionReport } from './menu_prompt/report/inventionReport.js';
 import { menuTravelHistoryReport } from  './menu_prompt/report/travelHistoryReport.js';
 
+/**
+ * Función principal que ejecuta el programa del multiverso, mostrando un menú interactivo para gestionar personajes, dimensiones, inventos, etc.
+ * Permite al usuario añadir, eliminar, buscar y modificar elementos del multiverso, así como generar informes y ejecutar experimentos.
+ */
 async function main() {
   const multiverseManager = MultiverseManager.getInstance();
   await initializeDB();

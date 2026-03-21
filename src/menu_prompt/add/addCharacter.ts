@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Character } from "../../classes/Character.js";
 
+/**
+ * Método para agregar un nuevo personaje al multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la adición.
+ */
 export async function menuAddCharacter(multiverseManager: MultiverseManager) {
   const data = await prompts([
     { type: 'text', name: 'id', message: 'ID del personaje:' },

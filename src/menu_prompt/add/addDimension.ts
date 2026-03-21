@@ -2,7 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Dimension } from "../../classes/Dimension.js";
 
-
+/**
+ * Método para agregar una nueva dimensión al multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la adición.
+ */
 export async function menuAddDimension(multiverseManager: MultiverseManager) {
   const data = await prompts([
     { type: 'text', name: 'id', message: 'ID de la dimensión (ej: C-137):' },

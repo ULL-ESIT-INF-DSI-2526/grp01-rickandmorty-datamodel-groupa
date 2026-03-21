@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Species } from "../../classes/Species.js";
 
+/**
+ * Método para eliminar una especie del multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la eliminación.
+ */
 export async function menuRemoveSpecies(multiverseManager: MultiverseManager) {
   const speciesId = await prompts({
     type: "text",

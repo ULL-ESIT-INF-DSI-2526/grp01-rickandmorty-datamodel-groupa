@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Invention } from "../../classes/Invention.js";
 
+/**
+ * Método para agregar un nuevo invento al multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la adición.
+ */
 export async function menuAddInvention(multiverseManager: MultiverseManager) {
     const data = await prompts([
         { type: 'text', name: 'id', message: 'ID del invento:' },

@@ -2,6 +2,10 @@ import prompts from "prompts";
 import { MultiverseManager } from "../../classes/MultiverseManager.js";
 import { Experiment } from "../../classes/Experiment.js";
 
+/**
+ * Método para agregar un nuevo experimento al multiverso a través del menú.
+ * @param multiverseManager - Instancia del MultiverseManager para acceder a los datos y realizar la adición.
+ */
 export async function menuAddExperiment(multiverseManager: MultiverseManager) {
   const data = await prompts([
      { type: 'text', name: 'id', message: 'ID del experimento:' },
