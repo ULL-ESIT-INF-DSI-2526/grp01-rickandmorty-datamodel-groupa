@@ -8,10 +8,11 @@ import { MultiverseManager } from '../../src/classes/MultiverseManager.js';
 import  { Travel } from '../../src/classes/Travel.js';
 
 describe('Search Elements Tests:', () => {
+  MultiverseManager.resetInstance();
+  const multiverseManager = MultiverseManager.getInstance();
   const dimension: Dimension = new Dimension("C-137", "Earth", "active", 5, "The original dimension");
   const dimension2: Dimension = new Dimension("D-001", "Dimension-1", "active", 7, "Dimension con 1990 planetas");
   const specie: Species = new Species("S-001", "Human", dimension, "Mammal", 80, "The most common specie");
-  const multiverseManager = new MultiverseManager();
   const character: Character = new Character("C-001", "Rick Sanchez", specie, dimension, "alive", "none", 10, "A genius scientist");
   const character2: Character = new Character("C-002", "Morty Smith", specie, dimension, "alive", "none", 5, "Rick's grandson");
   const character3: Character = new Character("C-003", "Summer Smith", specie, dimension, "alive", "none", 6, "Morty's older sister");

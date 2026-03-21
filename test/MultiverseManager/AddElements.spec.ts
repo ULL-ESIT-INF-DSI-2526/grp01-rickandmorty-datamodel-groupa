@@ -25,7 +25,8 @@ describe('Add Elements Tests:', () => {
   let travel: Travel;
 
   beforeEach(() => {
-    multiverseManager = new MultiverseManager();
+    MultiverseManager.resetInstance();
+    multiverseManager = MultiverseManager.getInstance();
 
     dimension = new Dimension("C-137", "Earth", "active", 5, "The original dimension");
     dimension2 = new Dimension("D-001", "Dimension-1", "active", 7, "Dimension con 1990 planetas");
@@ -56,6 +57,11 @@ describe('Add Elements Tests:', () => {
 
     test('Se instancio un objeto de la clase correctamente.', () => {
       expect(multiverseManager).toBeInstanceOf(MultiverseManager);
+    });
+
+    test('getInstance siempre devuelve la misma instancia', () => {
+      const anotherReference = MultiverseManager.getInstance();
+      expect(multiverseManager).toBe(anotherReference); 
     });
   });
 
@@ -195,7 +201,7 @@ describe('Add Elements Tests:', () => {
  
       expect(() => multiverseManager.addTravel(travel)).toThrow("La dimensión de destino del viaje no existe."); 
     });   
- 
+  
     test ('Añadir un viaje que ya esta en la colección', () => { 
       multiverseManager.addDimension(dimension);
       multiverseManager.addDimension(dimension2);

@@ -1,4 +1,4 @@
-import { TravelAttributes } from "../interfaces/ITravelAttributes.js";
+import { TravelAttributes } from "../interfaces/Attributes/ITravelAttributes.js";
 import { Character } from "./Character.js";
 import { Dimension } from "./Dimension.js";
 

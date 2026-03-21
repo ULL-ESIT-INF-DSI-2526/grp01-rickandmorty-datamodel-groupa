@@ -23,7 +23,8 @@ describe('Elements Report Tests: ', () => {
     let travel: Travel;
 
     beforeEach(() => {
-        multiverseManager = new MultiverseManager();
+        MultiverseManager.resetInstance();
+        multiverseManager = MultiverseManager.getInstance();
 
         dimension = new Dimension("C-137", "Earth", "active", 5, "The original dimension");
         dimension2 = new Dimension("D-001", "Dimension-1", "active", 7, "Dimension con 1990 planetas");

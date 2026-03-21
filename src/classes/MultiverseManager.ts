@@ -29,7 +29,9 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
     private _locations: Location[];
     private _travels: Travel[];
 
-    constructor() {
+    private static multiverseManager: MultiverseManager;
+
+    private constructor() {
         this._characters = [];
         this._dimensions = [];
         this._species = [];
@@ -37,6 +39,21 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._locations = [];
         this._travels = [];
     } 
+
+    public static getInstance(): MultiverseManager {
+        if (!MultiverseManager.multiverseManager) {
+            MultiverseManager.multiverseManager = new MultiverseManager();
+        }
+        return MultiverseManager.multiverseManager;
+    }
+
+    /**
+     * Método creado para testing. De otra manera en cada test se compartirian todas las inserciones
+     * de otros tests.
+     */
+    public static resetInstance(): void {
+        MultiverseManager.multiverseManager = new MultiverseManager();
+    }
 
     get dimensions(): Dimension[] { return this._dimensions; }
     get characters(): Character[] { return this._characters; }
