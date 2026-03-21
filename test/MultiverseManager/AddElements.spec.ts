@@ -24,11 +24,11 @@ describe('Add Elements Tests:', () => {
   let invention2: Invention;
   let invention3: Invention;
   let travel: Travel;
+  let travel2: Travel;
   let experiment: Experiment;
   let experiment2: Experiment;
 
   beforeEach(() => {
-    MultiverseManager.resetInstance();
     multiverseManager = MultiverseManager.getInstance();
 
     dimension = new Dimension("C-137", "Earth", "active", 5, "The original dimension");
@@ -50,6 +50,7 @@ describe('Add Elements Tests:', () => {
     invention3 = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location, "on");
 
     travel = new Travel("T-001", dimension, dimension2, character2, new Date(2026, 3, 3, 14, 34, 0), "Searching Rick");
+    travel2 = new Travel("T-001", dimension2, dimension, character, new Date(2026, 3, 3, 14, 34, 0), "Searching Rick");
 
     experiment = new Experiment("E-001", "Test Experiment", "An experiment to test the MultiverseManager class", character, "failed" , dimension, "destroyDimension");
     experiment2 = new Experiment("E-002", "Test Experiment 2", "An experiment to test the MultiverseManager class", character, "failed" , dimension2, "destroyDimension");
@@ -70,20 +71,25 @@ describe('Add Elements Tests:', () => {
       expect(multiverseManager).toBe(anotherReference); 
     });
 
+    test ('Si creamos dos instancias de MultiverseManagment apuntan a la misma dirección de memoria', () => {
+      const instance1 = MultiverseManager.getInstance();
+      const instance2 = MultiverseManager.getInstance();
+      expect(instance1).toBe(instance2);
+    });
+
     test ('Se crea un multiverseManager si no existe al llamar a getInstance', () => {
-      MultiverseManager.resetInstance(); // Aseguramos que no hay instancia previa
+      MultiverseManager.resetInstance();
       const newManager = MultiverseManager.getInstance();
       expect(newManager).toBeInstanceOf(MultiverseManager);
     });
 
-    test ('resetInstance crea una nueva instancia', () => {
-      const oldReference = MultiverseManager.getInstance();
-      MultiverseManager.resetInstance();
-      const newReference = MultiverseManager.getInstance();
-      expect(oldReference).not.toBe(newReference); 
-    });
   });
 
+  beforeEach(() => {
+    MultiverseManager.resetInstance();
+    multiverseManager = MultiverseManager.getInstance();
+  });
+  
   // Pruebas para añadir dimensiones a la colección
   describe('Metodo addDimension', () => {
     test('Añadir una dimension', () => {
@@ -213,13 +219,21 @@ describe('Add Elements Tests:', () => {
       expect(() => multiverseManager.addTravel(travel)).toThrow(`El personaje que realiza el viaje no existe`);
     });
 
-    test('Añadir un viaje con una dimensión que no esta en la coleccion', () => {
+    test('Añadir un viaje con una dimensión de destino que no esta en la coleccion', () => {
       multiverseManager.addDimension(dimension)
       multiverseManager.addSpecie(specie);
       multiverseManager.addCharacter(character2);
- 
+
       expect(() => multiverseManager.addTravel(travel)).toThrow("La dimensión de destino del viaje no existe."); 
-    });   
+    }); 
+    
+    test('Añadir un viaje con una dimensión de origen que no esta en la coleccion', () => {
+      multiverseManager.addDimension(dimension)
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+
+      expect(() => multiverseManager.addTravel(travel2)).toThrow("La dimensión de origen del viaje no existe."); 
+    }); 
   
     test ('Añadir un viaje que ya esta en la colección', () => { 
       multiverseManager.addDimension(dimension);

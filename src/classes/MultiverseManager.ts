@@ -531,6 +531,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
     /**
      * Ejecuta un experimento, realizando las acciones correspondientes según el tipo de experimento.
      * @param experiment - El experimento a ejecutar.
+     * @param id - El ID necesario para ciertos tipos de experimentos (por ejemplo, para crear una nueva dimensión). Es opcional
      */
     executeExperiment(experiment: Experiment, id?: string) {
       switch(experiment.type) {
