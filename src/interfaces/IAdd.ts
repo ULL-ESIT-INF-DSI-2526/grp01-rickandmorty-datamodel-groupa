@@ -4,6 +4,7 @@ import { Species } from "../classes/Species.js";
 import { Dimension } from "../classes/Dimension.js";
 import { Character } from "../classes/Character.js";
 import { Travel } from "../classes/Travel.js";
+import { Experiment } from "../classes/Experiment.js";
 
 /**
  * Interfaz que define los métodos para agregar elementos al multiverso de Rick and Morty.
@@ -42,4 +43,9 @@ export interface IAdd {
      * @param new_travel - Objeto de tipo Travel que representa el nuevo viaje a agregar.
      */
     addTravel(new_travel: Travel): void;
+    /**
+     * Agrega un nuevo experimento al multiverso.
+     * @param new_experiment - Objeto de tipo Experiment que representa el nuevo experimento a agregar.
+     */
+    addExperiment(new_experiment: Experiment): void;
 }

@@ -37,4 +37,9 @@ export interface IRemove {
      * @param id - ID del viaje a eliminar.
      */
     removeTravel(id: string): void;
+    /**
+     * Elimina un experimento del sistema.
+     * @param id - ID del experimento a eliminar.
+     */
+    removeExperiment(id: string): void;
 }

@@ -31,7 +31,7 @@ describe('Modify Elements Tests:', () => {
     character2 = new Character("C-002", "Morty Smith", specie, dimension, "alive", "none", 5, "Rick's grandson");
     location = new Location("L-001", "Citadel of Ricks", dimension, "City", 1000000, "A city where all the Ricks live together.");
     location2 = new Location("L-002", "Earth C-138", dimension2, "Planet", 7000000000, "A new Earth");
-    invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location);
+    invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location, "on");
     travel = new Travel("T-001", dimension, dimension, character, new Date(2026, 3, 3, 14, 34, 0), "ocio");
   });
 

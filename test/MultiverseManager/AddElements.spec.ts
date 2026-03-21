@@ -5,6 +5,7 @@ import { Species } from '../../src/classes/Species.js';
 import { Location } from '../../src/classes/Location.js';
 import { Invention } from '../../src/classes/Invention.js';
 import { Travel } from '../../src/classes/Travel.js';
+import { Experiment } from '../../src/classes/Experiment.js';
 import { MultiverseManager } from '../../src/classes/MultiverseManager.js';
 
 describe('Add Elements Tests:', () => {
@@ -23,6 +24,8 @@ describe('Add Elements Tests:', () => {
   let invention2: Invention;
   let invention3: Invention;
   let travel: Travel;
+  let experiment: Experiment;
+  let experiment2: Experiment;
 
   beforeEach(() => {
     MultiverseManager.resetInstance();
@@ -42,11 +45,14 @@ describe('Add Elements Tests:', () => {
     location2 = new Location("L-002", "Earth", dimension, "Planet", 7000000000, "The planet where most of the characters live.");
     location3 = new Location("L-003", "Jerrybore", dimension, "Daycare center", 100, "A daycare center where Jerry works.");
 
-    invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location);
-    invention2 = new Invention("I-002", "SpaceShip", character, "Vehicle", 9, "A spaceship that allows to travel through space", location);
-    invention3 = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location);
- 
+    invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location, "on");
+    invention2 = new Invention("I-002", "SpaceShip", character, "Vehicle", 9, "A spaceship that allows to travel through space", location, "on");
+    invention3 = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location, "on");
+
     travel = new Travel("T-001", dimension, dimension2, character2, new Date(2026, 3, 3, 14, 34, 0), "Searching Rick");
+
+    experiment = new Experiment("E-001", "Test Experiment", "An experiment to test the MultiverseManager class", character, "failed" , dimension, "destroyDimension");
+    experiment2 = new Experiment("E-002", "Test Experiment 2", "An experiment to test the MultiverseManager class", character, "failed" , dimension2, "destroyDimension");
   });
 
   // Pruebas de creación de la clase gestora
@@ -62,6 +68,19 @@ describe('Add Elements Tests:', () => {
     test('getInstance siempre devuelve la misma instancia', () => {
       const anotherReference = MultiverseManager.getInstance();
       expect(multiverseManager).toBe(anotherReference); 
+    });
+
+    test ('Se crea un multiverseManager si no existe al llamar a getInstance', () => {
+      MultiverseManager.resetInstance(); // Aseguramos que no hay instancia previa
+      const newManager = MultiverseManager.getInstance();
+      expect(newManager).toBeInstanceOf(MultiverseManager);
+    });
+
+    test ('resetInstance crea una nueva instancia', () => {
+      const oldReference = MultiverseManager.getInstance();
+      MultiverseManager.resetInstance();
+      const newReference = MultiverseManager.getInstance();
+      expect(oldReference).not.toBe(newReference); 
     });
   });
 
@@ -151,7 +170,7 @@ describe('Add Elements Tests:', () => {
     });
 
     test('Añadir un artefacto con un inventor que no esta en la colección', () => {
-      const invention_ = new Invention("I-004", "Portal Gun", new Character("C-005", "Rick Sanchez", specie, dimension, "alive", "none", 10, "A genius scientist"), "Gadget", 8, "A device that allows to travel between dimensions", location);
+      const invention_ = new Invention("I-004", "Portal Gun", new Character("C-005", "Rick Sanchez", specie, dimension, "alive", "none", 10, "A genius scientist"), "Gadget", 8, "A device that allows to travel between dimensions", location, "on");
       expect(() => multiverseManager.addInvention(invention_)).toThrow("El inventor del invento no existe.");
     });
   });
@@ -212,5 +231,34 @@ describe('Add Elements Tests:', () => {
       expect(() => multiverseManager.addTravel(travel)).toThrow(`El viaje con id ${travel.id} ya existe.`);
     });
   }); 
-  
-}); 
+
+  describe ('Método addExperiment', () => {
+    test('Añadir un nuevo experimento a la colección', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.addExperiment(experiment);
+      expect(multiverseManager.experiments.length).toBe(1); 
+    });
+    
+    test('Añadir un experimento con un creador que no esta en la coleccion', () => {
+      multiverseManager.addDimension(dimension);
+      expect(() => multiverseManager.addExperiment(experiment)).toThrow(`El creador del experimento no existe.`);
+    });
+
+    test('Añadir un experimento con una dimensión de origen que no esta en la coleccion', () => {
+      multiverseManager.addDimension(dimension); 
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      expect(() => multiverseManager.addExperiment(experiment2)).toThrow("La dimensión de origen del experimento no existe.");
+    });
+
+    test('Añadir un experimento que ya esta en la colección', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.addExperiment(experiment);
+      expect(() => multiverseManager.addExperiment(experiment)).toThrow(`El experimento con id ${experiment.id} ya existe.`);
+    });
+  });
+});

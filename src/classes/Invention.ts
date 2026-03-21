@@ -1,6 +1,7 @@
 import { InventionAttributes } from "../interfaces/Attributes/IInventionAttributes.js";
 import { Character } from "./Character.js";
 import { Location } from "./Location.js";
+import {InventionState} from "../types/InventionState.js"
 
 /**
  * Clase que representa una invención dentro del sistema.
@@ -15,6 +16,7 @@ export class Invention implements InventionAttributes {
    * @param dangerLevel - Nivel de peligro asociado a la invención (rango [1-10]).
    * @param description - Descripción de la invención, incluyendo características relevantes, historia, etc.
    * @param inventionLocation - Localización donde se creó la invención.
+   * @param state - Encendido o apagado
    */
   constructor(
     public id: string,
@@ -23,7 +25,8 @@ export class Invention implements InventionAttributes {
     public type: string,
     public dangerLevel: number,
     public description: string,
-    public inventionLocation: Location 
+    public inventionLocation: Location,
+    public state: InventionState
   ) {
     if (dangerLevel < 1 || dangerLevel > 10) {
       throw new Error("El nivel de peligro debe de estar en el rango [1-10]")

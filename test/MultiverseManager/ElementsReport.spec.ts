@@ -36,10 +36,10 @@ describe('Elements Report Tests: ', () => {
 
         location = new Location("L-001", "Citadel of Ricks", dimension, "City", 1000000, "A city where all the Ricks live together.");
 
-        invention = new Invention("I-001", "Portal Gun", character, "Gadget", 6, "A device that allows to travel between dimensions", location);
-        invention2 = new Invention("I-002", "SpaceShip", character, "Vehicle", 9, "A spaceship that allows to travel through space", location);
-        invention3 = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location);
-        
+        invention = new Invention("I-001", "Portal Gun", character, "Gadget", 6, "A device that allows to travel between dimensions", location, "on");
+        invention2 = new Invention("I-002", "SpaceShip", character, "Vehicle", 9, "A spaceship that allows to travel through space", location, "on");
+        invention3 = new Invention("I-003", "Pickle Rick", character, "Transformation", 7, "A device that allows to transform into a pickle", location, "on");
+
         travel = new Travel("T-001", dimension, dimension2, character, new Date(2026, 3, 3, 14, 34, 0), "Searching Rick");
         
         multiverseManager.addDimension(dimension);

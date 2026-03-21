@@ -20,6 +20,7 @@ import { InventionAttributes } from "../interfaces/Attributes/IInventionAttribut
 import { LocationAttributes } from "../interfaces/Attributes/ILocationAttributes.js";
 import { Travel } from "./Travel.js"
 import { ITravelCriteria } from "../interfaces/Criteria/ITravelCriteria.js";
+import { Experiment } from "./Experiment.js";
 
 /**
  * Clase que representa el gestor del multiverso, encargado de administrar las dimensiones,
@@ -39,6 +40,8 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
     private _locations: Location[];
     /**Array que almacena los viajes del multiverso. */
     private _travels: Travel[];
+    /**Array que almacena experimentos del multiverso */
+    private _experiments: Experiment[];
 
     /**Instancia única de la clase MultiverseManager para implementar el patrón Singleton. */
     private static multiverseManager: MultiverseManager;
@@ -54,6 +57,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._inventions = [];
         this._locations = [];
         this._travels = [];
+        this._experiments = [];
     } 
 
     /**
@@ -61,10 +65,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * @returns La instancia de MultiverseManager.
      */
     public static getInstance(): MultiverseManager {
-        if (!MultiverseManager.multiverseManager) {
-            MultiverseManager.multiverseManager = new MultiverseManager();
-        }
-        return MultiverseManager.multiverseManager;
+      if (!MultiverseManager.multiverseManager) {
+        MultiverseManager.multiverseManager = new MultiverseManager();
+      }
+      return MultiverseManager.multiverseManager;
     }
 
     /**
@@ -81,6 +85,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
     get inventions(): Invention[] {return this._inventions; }
     get locations(): Location[] { return this._locations; }
     get travels(): Travel[] { return this._travels }
+    get experiments(): Experiment[] { return this._experiments }
 
     /**
      * Agrega un nuevo personaje al multiverso.
@@ -161,6 +166,20 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
     }
 
     /**
+     * Agrega un nuevo experimento al multiverso.
+     * @param new_experiment - El experimento a agregar.
+     */
+    addExperiment(new_experiment: Experiment): void {
+        const exist = this._experiments.some(e => e.id === new_experiment.id);
+        const character_exist = this._characters.some(c => c.id === new_experiment.creator.id);
+        const dimension_exist = this._dimensions.some(dim => dim.id === new_experiment.originDimension.id);
+        if (exist) throw new Error(`El experimento con id ${new_experiment.id} ya existe.`);
+        if (!character_exist) throw new Error("El creador del experimento no existe.");
+        if (!dimension_exist) throw new Error("La dimensión de origen del experimento no existe.");
+        this._experiments.push(new_experiment);
+    }
+
+    /**
      * Elimina un personaje del multiverso.
      * @param id - El ID del personaje a eliminar.
      */
@@ -212,6 +231,14 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      */
     removeTravel(id: string): void {
         this._travels = this._travels.filter(t => t.id != id);
+    }
+
+    /**
+     * Elimina un experimento del multiverso.
+     * @param id - El ID del experimento a eliminar.
+     */
+    removeExperiment(id: string): void {
+        this._experiments = this._experiments.filter(e => e.id != id);
     }
 
     /**
@@ -372,17 +399,17 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * @returns Un array de viajes que cumplen con los criterios de búsqueda.
      */
     searchTravel(criteria: ITravelCriteria): Travel[] {
-        let travels = this.travels;
-        let found_travels: Travel[] = [];
+      let travels = this.travels;
+      let found_travels: Travel[] = [];
 
-        found_travels = travels.filter(t => {
-            if (criteria.originDimension && criteria.originDimension.id != t.originDimension.id) return false;
-            if (criteria.destinyDimension && criteria.destinyDimension.id != t.destinyDimension.id) return false;
-            if (criteria.character && criteria.character.id != t.character.id) return false;
-            if (criteria.date && criteria.date != t.date) return false;
-            return true;
-       });
-        return found_travels;
+      found_travels = travels.filter(t => {
+          if (criteria.originDimension && criteria.originDimension.id != t.originDimension.id) return false;
+          if (criteria.destinyDimension && criteria.destinyDimension.id != t.destinyDimension.id) return false;
+          if (criteria.character && criteria.character.id != t.character.id) return false;
+          if (criteria.date && criteria.date != t.date) return false;
+          return true;
+      });
+      return found_travels;
     }
     
     /**
@@ -391,17 +418,17 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * @returns Un array de dimensiones que cumplen con los criterios de búsqueda.
      */
     searchAlternativeLocationOfACharacter(name: string): Dimension[] {
-        let characters = this._characters;
+      let characters = this._characters;
 
-        let founded_dimensions: Dimension[] = [];
-        let chars: Character[] = [];
+      let founded_dimensions: Dimension[] = [];
+      let chars: Character[] = [];
 
-        chars = characters.filter(c => c.name == name);
-        chars.forEach(c => founded_dimensions.push(c.originDimension) );
+      chars = characters.filter(c => c.name == name);
+      chars.forEach(c => founded_dimensions.push(c.originDimension) );
 
 
 
-        return founded_dimensions;
+      return founded_dimensions;
     }
 
     /**
@@ -409,15 +436,15 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * @returns El informe de dimensiones activas.
      */
     getDimensionReport():string {
-        const active = this._dimensions.filter((d) => d.state.toLowerCase() === 'active');
-        const report = active.map((d) => ({ "Id": d.id, "TechnologyLevel": d.technologyLevel}));
-        let str: string = "";
-        report.forEach((el) => {
-            str += `Id: ${el.Id}, Tecnology Level: ${el.TechnologyLevel}`;
-        });
-        console.log("Active Dimension Report");
-        console.table(report);
-        return str;
+      const active = this._dimensions.filter((d) => d.state.toLowerCase() === 'active');
+      const report = active.map((d) => ({ "Id": d.id, "TechnologyLevel": d.technologyLevel}));
+      let str: string = "";
+      report.forEach((el) => {
+          str += `Id: ${el.Id}, Tecnology Level: ${el.TechnologyLevel}`;
+      });
+      console.log("Active Dimension Report");
+      console.table(report);
+      return str;
     }
 
     /**
@@ -426,15 +453,15 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * @returns El informe de invenciones peligrosas.
      */
     getInventionsReport(danger: number): string {
-        const dangerous = this._inventions.filter((d) => d.dangerLevel > danger );
-        const report = dangerous.map((d) => ({ "Id": d.id, "DangerousLevel": d.dangerLevel, "Localization": d.inventionLocation }));
-        let str: string = "";
-        report.forEach((el) => {
-            str += `Id: ${el.Id}, DangerousLevel: ${el.DangerousLevel}, Localization: ${el.Localization} \n`;
-        });
-        console.log("Most Dangerous Dimensions Report");
-        console.table(report);
-        return str;
+      const dangerous = this._inventions.filter((d) => d.dangerLevel > danger );
+      const report = dangerous.map((d) => ({ "Id": d.id, "DangerousLevel": d.dangerLevel, "Localization": d.inventionLocation }));
+      let str: string = "";
+      report.forEach((el) => {
+          str += `Id: ${el.Id}, DangerousLevel: ${el.DangerousLevel}, Localization: ${el.Localization} \n`;
+      });
+      console.log("Most Dangerous Dimensions Report");
+      console.table(report);
+      return str;
     }
 
     /**
@@ -442,24 +469,24 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * @returns El informe de personajes.
      */
     getCharacterReport(): string {
-        const names: string[] = this._characters.map((c) => c.name);
-        const unique = new Set(names);
-        const result: [string, number][] = [];
+      const names: string[] = this._characters.map((c) => c.name);
+      const unique = new Set(names);
+      const result: [string, number][] = [];
 
-        unique.forEach((el) => {
-            const dim = this.searchAlternativeLocationOfACharacter(el);
-            result.push([el, dim.length]);
-        });
+      unique.forEach((el) => {
+          const dim = this.searchAlternativeLocationOfACharacter(el);
+          result.push([el, dim.length]);
+      });
 
-        let str: string = "";
-        
-        const report = result.filter((d) => d[1] > 1).map(([n, c]) => ({"Character": n, "Versions": c}));
-        report.forEach((el) => {
-            str += `Character: ${el.Character},  Number of versions: ${el.Versions}`;
-        });
-        console.log("Character Report");
-        console.table(report);
-        return str;
+      let str: string = "";
+      
+      const report = result.filter((d) => d[1] > 1).map(([n, c]) => ({"Character": n, "Versions": c}));
+      report.forEach((el) => {
+          str += `Character: ${el.Character},  Number of versions: ${el.Versions}`;
+      });
+      console.log("Character Report");
+      console.table(report);
+      return str;
     }
 
     /**
@@ -468,14 +495,55 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * @returns El informe del historial de viajes.
      */
     getTravelHistoryReport(character: Character): string {
-        const report = this.travels.filter((d) => d.character === character);
-        let str: string = "";
-        report.forEach((el) => {
-            str += `Travel: ${el.id}, Character: ${el.character}, Date: ${el.date}, Motive: ${el.motive}, Origin: ${el.originDimension} Destination: ${el.destinyDimension} `;
-        });
-        console.log(`Travel History of the character: ${character}`);
-        console.table(report);
+      const report = this.travels.filter((d) => d.character === character);
+      let str: string = "";
+      report.forEach((el) => {
+        str += `Travel: ${el.id}, Character: ${el.character}, Date: ${el.date}, Motive: ${el.motive}, Origin: ${el.originDimension} Destination: ${el.destinyDimension} `;
+      });
+      console.log(`Travel History of the character: ${character}`);
+      console.table(report);
+      return str;
+    }
+
+    /**
+     * Neutraliza una invención, reduciendo su nivel de peligro a cero y apagándolo.
+     * @param invention - El invento a neutralizar.
+     * @returns Un mensaje indicando el resultado de la operación.
+     */
+    InventionNeutralization(invention: Invention): string {
+      invention.dangerLevel = 0;
+      invention.state = 'off';
+      let str: string = `El invento ${invention.name} ha sido neutralizado`;
+      return str;
+    }
+
+    /**
+     * Despliega una invención, cambiando su estado a 'on'.
+     * @param invention - El invento a desplegar.
+     * @returns Un mensaje indicando el resultado de la operación.
+     */
+    InventionDeployment(invention: Invention): string {
+        invention.state = 'on';
+        let str: string = `El invento ${invention.name} ha sido desplegado`;
         return str;
     }
-}
 
+    /**
+     * Ejecuta un experimento, realizando las acciones correspondientes según el tipo de experimento.
+     * @param experiment - El experimento a ejecutar.
+     */
+    executeExperiment(experiment: Experiment, id?: string) {
+      switch(experiment.type) {
+        case 'destroyDimension': {
+            this.removeDimension(experiment.originDimension.id);  
+            break;
+        }      
+        case 'createDimension': {
+            if (!id) throw new Error("Se requiere un id para crear una nueva dimensión.");
+            const d: Dimension = new Dimension(id, "Experiment Dimension", "active", 1, `Dimension created by the experiment ${experiment.id}`);
+            this.addDimension(d);
+            break;
+        }
+      }
+    }
+}         
