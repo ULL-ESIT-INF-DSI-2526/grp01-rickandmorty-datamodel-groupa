@@ -425,8 +425,6 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
       chars = characters.filter(c => c.name == name);
       chars.forEach(c => founded_dimensions.push(c.originDimension) );
 
-
-
       return founded_dimensions;
     }
 
@@ -434,14 +432,14 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * Genera un informe de las dimensiones activas en el multiverso.
      * @returns El informe de dimensiones activas.
      */
-    getDimensionReport():string {
+    getDimensionReport(): string {
       const active = this._dimensions.filter((d) => d.state.toLowerCase() === 'active');
       const report = active.map((d) => ({ "Id": d.id, "TechnologyLevel": d.technologyLevel}));
       let str: string = "";
       report.forEach((el) => {
           str += `Id: ${el.Id}, Tecnology Level: ${el.TechnologyLevel}`;
       });
-      console.log("Active Dimension Report");
+      console.log("Informe de dimensiones activas: ");
       console.table(report);
       return str;
     }
@@ -458,7 +456,8 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
       report.forEach((el) => {
           str += `Id: ${el.Id}, DangerousLevel: ${el.DangerousLevel}, Localization: ${el.Localization} \n`;
       });
-      console.log("Most Dangerous Dimensions Report");
+      
+      console.log("Informe de invenciones peligrosas: ");
       console.table(report);
       return str;
     }
@@ -483,8 +482,9 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
       report.forEach((el) => {
           str += `Character: ${el.Character},  Number of versions: ${el.Versions}`;
       });
-      console.log("Character Report");
-      console.table(report);
+
+      console.log("Informe de personajes activos:");
+      console.table(report);      
       return str;
     }
 
@@ -499,8 +499,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
       report.forEach((el) => {
         str += `Travel: ${el.id}, Character: ${el.character}, Date: ${el.date}, Motive: ${el.motive}, Origin: ${el.originDimension} Destination: ${el.destinyDimension} `;
       });
-      console.log(`Travel History of the character: ${character}`);
-      console.table(report);
+
+      const report_table = report.map((el) => ({ "Travel": el.id, "Character": el.character.name, "Date": el.date, "Motive": el.motive, "Origin": el.originDimension.name, "Destination": el.destinyDimension.name}));
+      console.log("Informe de viajes de un personaje:");
+      console.table(report_table);
       return str;
     }
 

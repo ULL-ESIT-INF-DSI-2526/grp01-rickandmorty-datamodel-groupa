@@ -13,7 +13,9 @@ export const db = new Low<IDataBase>(adapter, {
     dimensions: [],
     inventions: [],
     locations: [],
-    species: []
+    species: [],
+    experiments: [],
+    travels: []
 });
 
 /**
@@ -21,6 +23,6 @@ export const db = new Low<IDataBase>(adapter, {
  */
 export async function initializeDB() {
     await db.read();
-    db.data ||= { characters: [], dimensions: [], inventions: [], locations: [], species: [] };
+    if (!db.data) db.data = { characters: [], dimensions: [], inventions: [], locations: [], species: [], experiments: [], travels: [] };
     await db.write();
 }

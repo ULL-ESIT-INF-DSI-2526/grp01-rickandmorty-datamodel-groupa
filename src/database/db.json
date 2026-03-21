@@ -1,60 +1,32 @@
 {
-  "characters": [
-    {
-      "id": "C-001",
-      "name": "Rick Sanchez",
-      "species": {
-        "id": "S-001",
-        "name": "Human",
-        "origin": {
-          "id": "C-137",
-          "name": "Earth",
-          "state": "active",
-          "technologyLevel": 5,
-          "description": "The original dimension"
-        },
-        "type": "Mammal",
-        "lifeExpectancy": 80,
-        "description": "The most common specie"
-      },
-      "originDimension": {
-        "id": "C-137",
-        "name": "Earth",
-        "state": "active",
-        "technologyLevel": 5,
-        "description": "The original dimension"
-      },
-      "state": "alive",
-      "affiliation": "none",
-      "inteligenceLevel": 10,
-      "description": "A genius scientist"
-    }
-  ],
+  "characters": [],
   "dimensions": [
     {
-      "id": "C-137",
-      "name": "Earth",
+      "id": "asd",
+      "name": "asd",
       "state": "active",
-      "technologyLevel": 5,
-      "description": "The original dimension"
+      "technologyLevel": 4,
+      "description": "asd"
     }
   ],
   "inventions": [],
   "locations": [],
   "species": [
     {
-      "id": "S-001",
-      "name": "Human",
+      "id": "asd",
+      "name": "asd",
       "origin": {
-        "id": "C-137",
-        "name": "Earth",
+        "id": "asd",
+        "name": "asd",
         "state": "active",
-        "technologyLevel": 5,
-        "description": "The original dimension"
+        "technologyLevel": 4,
+        "description": "asd"
       },
-      "type": "Mammal",
-      "lifeExpectancy": 80,
-      "description": "The most common specie"
+      "type": "asd",
+      "lifeExpectancy": 5,
+      "description": "asd"
     }
-  ]
+  ],
+  "experiments": [],
+  "travels": []
 }

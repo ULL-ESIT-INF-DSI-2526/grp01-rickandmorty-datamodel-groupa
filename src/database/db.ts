@@ -3,6 +3,8 @@ import { Dimension } from "../classes/Dimension.js";
 import { Invention } from "../classes/Invention.js";
 import { Location } from "../classes/Location.js";
 import { Species } from "../classes/Species.js";
+import { Experiment } from "../classes/Experiment.js";
+import { Travel } from "../classes/Travel.js";
 
 /**
  * Interfaz que define la estructura de la base de datos del multiverso de Rick and Morty. 
@@ -18,4 +20,8 @@ export interface IDataBase {
     locations: Location[];
     /** Array de especies en el multiverso. */
     species: Species[];
+    /** Array de experimentos en el multiverso. */
+    experiments: Experiment[];
+    /** Array de viajes en el multiverso. */
+    travels: Travel[];
 }
