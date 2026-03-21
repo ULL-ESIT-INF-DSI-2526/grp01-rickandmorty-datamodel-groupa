@@ -81,12 +81,12 @@ describe('Search Elements Tests:', () => {
       expect(result[0].id).toBe(character.id);
     });
 
-      test('Buscar un personaje por orden descendente por nombre', () => {
+    test('Buscar un personaje por orden descendente por nombre', () => {
       const result = multiverseManager.searchCharacters({name: "Rick Sanchez"}, "name", "desc");
       expect(result.length).toBe(1);
       expect(result[0].id).toBe(character.id);
     });
-
+    
   });
 
   //pruebas para buscar inventos

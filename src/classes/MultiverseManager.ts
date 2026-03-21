@@ -343,7 +343,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         if (mode == "intelligence") {
             if (order == "asc") found_characters.sort((a, b) => a.inteligenceLevel - b.inteligenceLevel);
             else found_characters.sort((a, b) => b.inteligenceLevel - a.inteligenceLevel);
-        } else if (mode == "name") {
+        } else {
             if (order == "asc") found_characters.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
             else found_characters.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()));
         }
