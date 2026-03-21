@@ -37,14 +37,6 @@ describe('Modify Elements Tests:', () => {
 
   //pruebas para modificar dimensiones
   describe('Metodo modifyDimension', () => {
-    test('Modificar el estado de una dimension', () => {
-      multiverseManager.addDimension(dimension);
-      const size = multiverseManager.dimensions.length;
-      multiverseManager.modifyDimension(dimension.id, { state: 'destroyed' });
-      expect(multiverseManager.dimensions.length).toBe(size);
-      expect(multiverseManager.dimensions[0].state).toEqual('destroyed');
-    });
-
     test ('Modificar todos los atributos de una dimension', () => { 
       multiverseManager.addDimension(dimension);
       const size = multiverseManager.dimensions.length;
@@ -54,46 +46,103 @@ describe('Modify Elements Tests:', () => {
       expect(multiverseManager.dimensions[0].state).toEqual('destroyed');
       expect(multiverseManager.dimensions[0].description).toEqual('A new dimension');
     });
+
+    test ('Lanza error porque no encuentra la dimension', () => {
+      expect(() => multiverseManager.modifyDimension("C-999", { state: 'destroyed' })).toThrowError("La dimensión que desea cambiar no se encuentra en la colección");
+    });
+
+    test ('Modificar el estado de una dimension', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.modifyDimension(dimension.id, { state: 'destroyed' });
+      expect(multiverseManager.dimensions[0].state).toEqual('destroyed');
+    });
+
+    test ('Modificar el nivel tecnológico de una dimension', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.modifyDimension(dimension.id, { technologyLevel: 10 });
+      expect(multiverseManager.dimensions[0].technologyLevel).toEqual(10);
+    });
+
+    test ('Modificar la descripción de una dimension', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.modifyDimension(dimension.id, { description: 'A new dimension' });
+      expect(multiverseManager.dimensions[0].description).toEqual('A new dimension');
+    }); 
   });
 
   //pruebas para modificar personajes
   describe('Metodo modifyCharacter', () => {
-    test('Modificar el estado de un personaje', () => {
-      multiverseManager.addDimension(dimension);
-      multiverseManager.addSpecie(specie);
-      multiverseManager.addCharacter(character);
-      const size = multiverseManager.characters.length;
-      multiverseManager.modifyCharacter(character.id, { state: 'dead' });
-      expect(multiverseManager.characters.length).toBe(size);
-      expect(multiverseManager.characters[0].state).toEqual('dead');
-    });
-
     test ('Modificar todos los atributos de un personaje', () => { 
       multiverseManager.addDimension(dimension);
       multiverseManager.addSpecie(specie);
       multiverseManager.addCharacter(character);
       multiverseManager.addSpecie(specie2);
       multiverseManager.addDimension(dimension2);
-      const size = multiverseManager.characters.length;
-      multiverseManager.modifyCharacter(character.id, { species: specie2, originDimension: dimension2, state: 'dead', affiliation: 'Ricks', inteligenceLevel: 9, description: 'A new character' });
-      expect(multiverseManager.characters.length).toBe(size);
+        const size = multiverseManager.characters.length;
+        multiverseManager.modifyCharacter(character.id, { species: specie2, originDimension: dimension2, state: 'dead', affiliation: 'Ricks', inteligenceLevel: 9, description: 'A new character' });
+        expect(multiverseManager.characters.length).toBe(size);
       expect(multiverseManager.characters[0].state).toEqual('dead');
       expect(multiverseManager.characters[0].affiliation).toEqual('Ricks');
       expect(multiverseManager.characters[0].inteligenceLevel).toEqual(9);
       expect(multiverseManager.characters[0].description).toEqual('A new character');
     });
+
+    test ('Lanza error porque no encuentra el personaje', () => {
+      expect(() => multiverseManager.modifyCharacter("C-999", { state: 'dead' })).toThrowError("El personaje que desea cambiar no se encuentra en la colección");
+    });
+
+    test ('Modificar la especie de un personaje', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.modifyCharacter(character.id, { species: specie2 });
+      expect(multiverseManager.characters[0].species).toEqual(specie2);
+    });
+
+    test ('Modificar la dimension de origen de un personaje', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.modifyCharacter(character.id, { originDimension: dimension2 });
+      expect(multiverseManager.characters[0].originDimension).toEqual(dimension2);
+    });
+
+    test ('Modificar el estado de un personaje', () => {  
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.modifyCharacter(character.id, { state: 'dead' });
+      expect(multiverseManager.characters[0].state).toEqual('dead');
+    });
+
+     test ('Modificar la afiliación de un personaje', () => {  
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.modifyCharacter(character.id, { affiliation: 'Ricks' });
+      expect(multiverseManager.characters[0].affiliation).toEqual('Ricks');
+    });
+
+    test ('Modificar el nivel de inteligencia de un personaje', () => {  
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.modifyCharacter(character.id, { inteligenceLevel: 9 });
+      expect(multiverseManager.characters[0].inteligenceLevel).toEqual(9);
+    });
+
+    test ('Modificar la descripción de un personaje', () => {  
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.modifyCharacter(character.id, { description: 'A new character' });
+      expect(multiverseManager.characters[0].description).toEqual('A new character');
+    });
+
+    
   });
 
   describe ('Metodo modifyLocation', () => {
-    test('Modificar el tipo de una localizacion', () => {
-      multiverseManager.addDimension(dimension);
-      multiverseManager.addLocation(location);
-      const size = multiverseManager.locations.length;
-      multiverseManager.modifyLocation(location.id, { type: 'Planet' });
-      expect(multiverseManager.locations.length).toBe(size);
-      expect(multiverseManager.locations[0].type).toEqual('Planet');
-    });
-
     test ('Modificar todos los atributos de una localizacion', () => { 
       multiverseManager.addDimension(dimension);
       multiverseManager.addDimension(dimension2);
@@ -106,21 +155,42 @@ describe('Modify Elements Tests:', () => {
       expect(multiverseManager.locations[0].description).toEqual('A new location');
       expect(multiverseManager.locations[0].aproxPopulation).toEqual(700);
     });
+
+    test ('Lanza error porque no encuentra la localizacion', () => {
+      expect(() => multiverseManager.modifyLocation("L-999", { type: 'Planet' })).toThrowError("La localizacion que desea cambiar no se encuentra en la colección");
+    });
+
+    test ('Modificar la dimension de una localizacion', () => {
+        multiverseManager.addDimension(dimension);
+        multiverseManager.addDimension(dimension2);
+        multiverseManager.addLocation(location);
+        multiverseManager.modifyLocation(location.id, { dimension: dimension2 });
+        expect(multiverseManager.locations[0].dimension).toEqual(dimension2);
+    });
+
+    test ('Modificar el tipo de una localizacion', () => {
+        multiverseManager.addDimension(dimension);
+        multiverseManager.addLocation(location);
+        multiverseManager.modifyLocation(location.id, { type: 'Planet' });
+        expect(multiverseManager.locations[0].type).toEqual('Planet');
+    });
+
+    test ('Modificar la población aproximada de una localizacion', () => {
+        multiverseManager.addDimension(dimension);
+        multiverseManager.addLocation(location);
+        multiverseManager.modifyLocation(location.id, { aproxPopulation: 700 });
+        expect(multiverseManager.locations[0].aproxPopulation).toEqual(700);
+    });
+
+    test ('Modificar la descripción de una localizacion', () => {
+        multiverseManager.addDimension(dimension);
+        multiverseManager.addLocation(location);
+        multiverseManager.modifyLocation(location.id, { description: 'A new location' });
+        expect(multiverseManager.locations[0].description).toEqual('A new location');
+    });
   });
 
   describe ('Metodo modifyInvention', () => {
-    test('Modificar el tipo de un invento', () => {
-      multiverseManager.addDimension(dimension);
-      multiverseManager.addSpecie(specie);
-      multiverseManager.addCharacter(character);
-      multiverseManager.addLocation(location);
-      multiverseManager.addInvention(invention);
-      const size = multiverseManager.inventions.length;
-      multiverseManager.modifyInvention(invention.id, { type: 'Weapon' });
-      expect(multiverseManager.inventions.length).toBe(size);
-      expect(multiverseManager.inventions[0].type).toEqual('Weapon');
-    });
-
     test ('Modificar todos los atributos de un invento', () => { 
       multiverseManager.addDimension(dimension);
       multiverseManager.addSpecie(specie);
@@ -139,18 +209,65 @@ describe('Modify Elements Tests:', () => {
       expect(multiverseManager.inventions[0].description).toEqual('A new invention');
       expect(multiverseManager.inventions[0].inventionLocation).toEqual(location2);
     });
+
+    test ('Lanza error porque no encuentra el invento', () => {
+      expect(() => multiverseManager.modifyInvention("I-999", { type: 'Weapon' })).toThrowError("El invento que desea cambiar no se encuentra en la colección");
+    });
+
+    test ('Modificar el inventor de un invento', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.addLocation(location);
+      multiverseManager.addInvention(invention);
+      multiverseManager.modifyInvention(invention.id, { inventor: character2 });
+      expect(multiverseManager.inventions[0].inventor).toEqual(character2);
+    });
+
+    test ('Modificar el tipo de un invento', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.addLocation(location);
+      multiverseManager.addInvention(invention);
+      multiverseManager.modifyInvention(invention.id, { type: 'Weapon' });
+      expect(multiverseManager.inventions[0].type).toEqual('Weapon');
+    });
+
+    test ('Modificar el nivel de peligro de un invento', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.addLocation(location);
+      multiverseManager.addInvention(invention);
+      multiverseManager.modifyInvention(invention.id, { dangerLevel: 6 });
+      expect(multiverseManager.inventions[0].dangerLevel).toEqual(6);
+    });
+
+    test ('Modificar la descripción de un invento', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.addLocation(location);
+      multiverseManager.addInvention(invention);
+      multiverseManager.modifyInvention(invention.id, { description: 'A new invention' });
+      expect(multiverseManager.inventions[0].description).toEqual('A new invention');
+    });
+
+    test ('Modificar la localización de un invento', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addDimension(dimension2);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.addCharacter(character);
+      multiverseManager.addLocation(location);
+      multiverseManager.addInvention(invention);
+      multiverseManager.addLocation(location2);
+      multiverseManager.modifyInvention(invention.id, { inventionLocation: location2 });
+      expect(multiverseManager.inventions[0].inventionLocation).toEqual(location2);
+    });
   });
 
   describe ('Metodo modifySpecie', () => {
-    test('Modificar el tipo de una especie', () => {
-      multiverseManager.addDimension(dimension);
-      multiverseManager.addSpecie(specie);
-      const size = multiverseManager.species.length;
-      multiverseManager.modifySpecie(specie.id, { type: 'Reptile' });
-      expect(multiverseManager.species.length).toBe(size);
-      expect(multiverseManager.species[0].type).toEqual('Reptile');
-    });
-
     test ('Modificar todos los atributos de una especie', () => { 
       multiverseManager.addDimension(dimension);
       multiverseManager.addDimension(dimension2);
@@ -161,6 +278,39 @@ describe('Modify Elements Tests:', () => {
       expect(multiverseManager.species[0].origin).toEqual(dimension2);
       expect(multiverseManager.species[0].type).toEqual('Reptile');
       expect(multiverseManager.species[0].lifeExpectancy).toEqual(100);
+      expect(multiverseManager.species[0].description).toEqual('A new specie');
+    });
+
+    test('Lanza error porque no encuentra la especie', () => {
+      expect(() => multiverseManager.modifySpecie("S-999", { type: 'Reptile' })).toThrowError("La especie que desea cambiar no se encuentra en la colección");
+    });
+
+    test('Modificar el origen de una especie', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addDimension(dimension2);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.modifySpecie(specie.id, { origin: dimension2 });
+      expect(multiverseManager.species[0].origin).toEqual(dimension2);
+    });
+
+    test('Modificar el tipo de una especie', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.modifySpecie(specie.id, { type: 'Reptile' });
+      expect(multiverseManager.species[0].type).toEqual('Reptile');
+    });
+
+    test('Modificar la esperanza de vida de una especie', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.modifySpecie(specie.id, { lifeExpectancy: 100 });
+      expect(multiverseManager.species[0].lifeExpectancy).toEqual(100);
+    });
+
+    test('Modificar la descripción de una especie', () => {
+      multiverseManager.addDimension(dimension);
+      multiverseManager.addSpecie(specie);
+      multiverseManager.modifySpecie(specie.id, { description: 'A new specie' });
       expect(multiverseManager.species[0].description).toEqual('A new specie');
     });
   });

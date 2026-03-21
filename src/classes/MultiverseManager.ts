@@ -343,8 +343,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         if (mode == "intelligence") {
             if (order == "asc") found_characters.sort((a, b) => a.inteligenceLevel - b.inteligenceLevel);
             else found_characters.sort((a, b) => b.inteligenceLevel - a.inteligenceLevel);
-        }
-        else if (mode == "name") {
+        } else if (mode == "name") {
             if (order == "asc") found_characters.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
             else found_characters.sort((a, b) => b.name.toLowerCase().localeCompare(a.name.toLowerCase()));
         }
@@ -398,19 +397,19 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
      * @param criteria - Los criterios de búsqueda para los viajes.
      * @returns Un array de viajes que cumplen con los criterios de búsqueda.
      */
-    searchTravel(criteria: ITravelCriteria): Travel[] {
-      let travels = this.travels;
-      let found_travels: Travel[] = [];
+    // searchTravel(criteria: ITravelCriteria): Travel[] {
+    //   let travels = this.travels;
+    //   let found_travels: Travel[] = [];
 
-      found_travels = travels.filter(t => {
-          if (criteria.originDimension && criteria.originDimension.id != t.originDimension.id) return false;
-          if (criteria.destinyDimension && criteria.destinyDimension.id != t.destinyDimension.id) return false;
-          if (criteria.character && criteria.character.id != t.character.id) return false;
-          if (criteria.date && criteria.date != t.date) return false;
-          return true;
-      });
-      return found_travels;
-    }
+    //   found_travels = travels.filter(t => {
+    //       if (criteria.originDimension && criteria.originDimension.id != t.originDimension.id) return false;
+    //       if (criteria.destinyDimension && criteria.destinyDimension.id != t.destinyDimension.id) return false;
+    //       if (criteria.character && criteria.character.id != t.character.id) return false;
+    //       if (criteria.date && criteria.date != t.date) return false;
+    //       return true;
+    //   });
+    //   return found_travels;
+    // }
     
     /**
      * Busca las dimensiones alternativas de un personaje en el multiverso.

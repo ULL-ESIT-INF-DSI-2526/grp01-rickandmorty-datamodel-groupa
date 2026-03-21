@@ -50,5 +50,5 @@ export interface ISearchElements  {
      * @param criteria - Criterios de búsqueda para los viajes.
      * @returns Array de viajes que coinciden con los criterios.
      */
-    searchTravel(criteria: ITravelCriteria): Travel[];
+    //searchTravel(criteria: ITravelCriteria): Travel[];
 }

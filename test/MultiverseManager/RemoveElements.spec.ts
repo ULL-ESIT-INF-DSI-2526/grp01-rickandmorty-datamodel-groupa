@@ -10,9 +10,11 @@ import { Experiment } from '../../src/classes/Experiment.js';
 
 describe('Remove Elements Tests:', () => {
   let dimension: Dimension;
+  let dimension2: Dimension;
   let specie: Species;
   let multiverseManager: MultiverseManager;
   let character: Character;
+  let character2: Character;
   let location: Location;
   let invention: Invention;
   let travel: Travel;
@@ -22,8 +24,10 @@ describe('Remove Elements Tests:', () => {
     MultiverseManager.resetInstance();
     multiverseManager = MultiverseManager.getInstance();
     dimension = new Dimension("C-137", "Earth", "active", 5, "The original dimension");
+    dimension2 = new Dimension("C-138", "Earth", "active", 5, "A new dimension");
     specie = new Species("S-001", "Human", dimension, "Mammal", 80, "The most common specie");
     character = new Character("C-001", "Rick Sanchez", specie, dimension, "alive", "none", 10, "A genius scientist");
+    character2 = new Character("C-002", "Morty Smith", specie, dimension, "alive", "none", 5, "Rick's grandson");
     location = new Location("L-001", "Citadel of Ricks", dimension, "City", 1000000, "A city where all the Ricks live together.");
     invention = new Invention("I-001", "Portal Gun", character, "Gadget", 8, "A device that allows to travel between dimensions", location, "on");
     travel = new Travel("T-001", dimension, dimension, character, new Date(2026, 3, 3, 14, 34, 0), "ocio");
@@ -34,6 +38,7 @@ describe('Remove Elements Tests:', () => {
   describe('Metodo removeDimension', () => {
     test('Eliminar una dimension y las localizaciones que pertenecen a esa dimension', () => {
       multiverseManager.addDimension(dimension);
+      multiverseManager.addDimension(dimension2);
       multiverseManager.addLocation(location); 
       const size = multiverseManager.dimensions.length;
       multiverseManager.removeDimension(dimension.id);
@@ -62,6 +67,7 @@ describe('Remove Elements Tests:', () => {
       multiverseManager.addDimension(dimension);
       multiverseManager.addSpecie(specie);
       multiverseManager.addCharacter(character);
+      multiverseManager.addCharacter(character2);
       const size = multiverseManager.characters.length;
       multiverseManager.removeCharacter(character.id);
       expect(multiverseManager.characters.length).toBe(size);
