@@ -288,6 +288,7 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         if (modifyAttributes.dimension != undefined ) founded_locations.dimension = modifyAttributes.dimension;
         if (modifyAttributes.type != undefined) founded_locations.type = modifyAttributes.type;
         if (modifyAttributes.description != undefined) founded_locations.description = modifyAttributes.description;
+        if (modifyAttributes.aproxPopulation != undefined) founded_locations.aproxPopulation = modifyAttributes.aproxPopulation;
     }
 
     /**
