@@ -21,16 +21,32 @@ import { LocationAttributes } from "../interfaces/Attributes/ILocationAttributes
 import { Travel } from "./Travel.js"
 import { ITravelCriteria } from "../interfaces/Criteria/ITravelCriteria.js";
 
+/**
+ * Clase que representa el gestor del multiverso, encargado de administrar las dimensiones,
+ * personajes, especies, inventos, ubicaciones y viajes. Implementa las interfaces IAdd,
+ * IRemove, ISearchElements e IModify para realizar las operaciones correspondientes sobre los elementos del multiverso.
+ */
 export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModify {
+    /**Array que almacena los personajes del multiverso. */
     private _characters: Character[];
+    /**Array que almacena las dimensiones del multiverso. */
     private _dimensions: Dimension[];
+    /**Array que almacena las especies del multiverso. */
     private _species: Species[];
+    /**Array que almacena los inventos del multiverso. */
     private _inventions: Invention[];
+    /**Array que almacena las ubicaciones del multiverso. */
     private _locations: Location[];
+    /**Array que almacena los viajes del multiverso. */
     private _travels: Travel[];
 
+    /**Instancia única de la clase MultiverseManager para implementar el patrón Singleton. */
     private static multiverseManager: MultiverseManager;
 
+    /**
+     * Constructor privado para evitar la creación de múltiples instancias de MultiverseManager. 
+     * Inicializa los arrays de personajes, dimensiones, especies, inventos, ubicaciones y viajes.
+     */
     private constructor() {
         this._characters = [];
         this._dimensions = [];
@@ -40,6 +56,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._travels = [];
     } 
 
+    /**
+     * Obtiene la instancia única de la clase MultiverseManager.
+     * @returns La instancia de MultiverseManager.
+     */
     public static getInstance(): MultiverseManager {
         if (!MultiverseManager.multiverseManager) {
             MultiverseManager.multiverseManager = new MultiverseManager();
@@ -62,6 +82,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
     get locations(): Location[] { return this._locations; }
     get travels(): Travel[] { return this._travels }
 
+    /**
+     * Agrega un nuevo personaje al multiverso.
+     * @param new_character - El personaje a agregar.
+     */
     addCharacter(new_character: Character): void { 
         const exist = this.characters.some(c => c.id === new_character.id);
         const dimension_exist = this._dimensions.some(d => d.id === new_character.originDimension.id);
@@ -74,12 +98,20 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._characters.push(new_character);
     }
 
+    /**
+     * Agrega una nueva dimensión al multiverso.
+     * @param new_dimension - La dimensión a agregar.
+     */
     addDimension(new_dimension: Dimension): void { 
         const exist = this._dimensions.some(d => d.id === new_dimension.id);
         if (exist) throw new Error(`La dimensión con id ${new_dimension.id} ya existe.`);
         this._dimensions.push(new_dimension);
     }
 
+    /**
+     * Agrega un nuevo invento al multiverso.
+     * @param new_invention - El invento a agregar.
+     */
     addInvention(new_invention: Invention): void { 
         const exist = this._inventions.some(i => i.id === new_invention.id);
         const inventor_exist = this._characters.some(c => c.id === new_invention.inventor.id);
@@ -88,6 +120,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._inventions.push(new_invention);
     }
 
+    /**
+     * Agrega una nueva ubicación al multiverso.
+     * @param new_location - La ubicación a agregar.
+     */
     addLocation(new_location: Location): void {
         const exist = this._locations.some(l => l.id === new_location.id);
         const dimension_exist = this._dimensions.some(d => d.id === new_location.dimension.id);
@@ -96,6 +132,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._locations.push(new_location);
     }
     
+    /**
+     * Agrega una nueva especie al multiverso.
+     * @param new_specie - La especie a agregar.
+     */
     addSpecie(new_specie: Species): void {
         const exist = this._species.some(s => s.id === new_specie.id);
         const dimension_exist = this._dimensions.some(d => d.id === new_specie.origin.id);
@@ -104,6 +144,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._species.push(new_specie);
     }
 
+    /**
+     * Agrega un nuevo viaje al multiverso.
+     * @param new_travel - El viaje a agregar.
+     */
     addTravel(new_travel: Travel):void {
         const exist = this._travels.some(s => s.id === new_travel.id);
         const character_exist = this._characters.some(c => c.id === new_travel.character.id);
@@ -116,12 +160,20 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._travels.push(new_travel);
     }
 
+    /**
+     * Elimina un personaje del multiverso.
+     * @param id - El ID del personaje a eliminar.
+     */
     removeCharacter(id: string): void { 
         this._characters.map(c => {
             if (c.id == id) c.state = 'dead';
         });
     }
 
+    /**
+     * Elimina una dimensión del multiverso.
+     * @param id - El ID de la dimensión a eliminar.
+     */
     removeDimension(id: string): void { 
         this._dimensions.map(d => {
             if (d.id == id) d.state = 'destroyed';
@@ -129,23 +181,44 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         this._locations = this._locations.filter(l => l.dimension.id != id );
     }
 
+    /**
+     * Elimina un invento del multiverso.
+     * @param id - El ID del invento a eliminar.
+     */
     removeInvention(id: string): void { 
         this._inventions = this._inventions.filter(i => i.id != id);
     }
     
+    /**
+     * Elimina una ubicación del multiverso.
+     * @param id - El ID de la ubicación a eliminar.
+     */
     removeLocation(id: string): void { 
         this._locations = this._locations.filter(l => l.id != id);
     }
     
+    /**
+     * Elimina una especie del multiverso, así como todos los personajes que pertenezcan a esa especie.
+     * @param id - El ID de la especie a eliminar.
+     */
     removeSpecie(id: string): void { 
         this._species = this._species.filter(s => s.id != id);
         this._characters = this._characters.filter(c => c.species.id != id);        
     }
 
+    /**
+     * Elimina un viaje del multiverso.
+     * @param id - El ID del viaje a eliminar.
+     */
     removeTravel(id: string): void {
         this._travels = this._travels.filter(t => t.id != id);
     }
 
+    /**
+     * Modifica los atributos de un personaje en el multiverso.
+     * @param id - El ID del personaje a modificar.
+     * @param modifyAttributes - Los atributos a modificar.
+     */
     modifyCharacter(id: string, modifyAttributes: Partial<CharacterAttributes>): void {
         const found_character = this._characters.find(c => c.id == id);
         if (!found_character) throw new Error ('El personaje que desea cambiar no se encuentra en la colección');
@@ -158,6 +231,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         if (modifyAttributes.description != undefined) found_character.description = modifyAttributes.description;
     }
 
+    /**
+     * Modifica los atributos de una dimensión en el multiverso.
+     * @param id - El ID de la dimensión a modificar.
+     * @param modifyAttributes - Los atributos a modificar.
+     */
     modifyDimension(id: string, modifyAttributes: Partial<DimensionAttributes>): void {
         const founded_dimensions = this._dimensions.find(d => d.id == id);
         if (!founded_dimensions) throw new Error ('La dimensión que desea cambiar no se encuentra en la colección');
@@ -167,6 +245,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         if (modifyAttributes.description != undefined) founded_dimensions.description = modifyAttributes.description;
     }
 
+    /**
+     * Modifica los atributos de una especie en el multiverso.
+     * @param id - El ID de la especie a modificar.
+     * @param modifyAttributes - Los atributos a modificar.
+     */
     modifySpecie(id: string, modifyAttributes: Partial<SpeciesAttributes>): void {
         const founded_species = this._species.find(s => s.id == id);
         if (!founded_species) throw new Error ('La especie que desea cambiar no se encuentra en la colección');
@@ -177,6 +260,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         if (modifyAttributes.lifeExpectancy != undefined) founded_species.lifeExpectancy = modifyAttributes.lifeExpectancy;
     }
 
+    /**
+     * Modifica los atributos de un invento en el multiverso.
+     * @param id - El ID del invento a modificar.
+     * @param modifyAttributes - Los atributos a modificar.
+     */
     modifyInvention(id: string, modifyAttributes: Partial<InventionAttributes>): void {
         const founded_inventions = this._inventions.find(i => i.id == id);
         if (!founded_inventions) throw new Error ('El invento que desea cambiar no se encuentra en la colección');
@@ -188,6 +276,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         if (modifyAttributes.inventionLocation != undefined) founded_inventions.inventionLocation = modifyAttributes.inventionLocation;
     }
     
+    /**
+     * Modifica los atributos de una ubicación en el multiverso.
+     * @param id - El ID de la ubicación a modificar.
+     * @param modifyAttributes - Los atributos a modificar.
+     */
     modifyLocation(id: string, modifyAttributes: Partial<LocationAttributes>): void {
         const founded_locations = this._locations.find(l => l.id == id);
         if (!founded_locations) throw new Error ('La localizacion que desea cambiar no se encuentra en la colección');
@@ -197,6 +290,14 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         if (modifyAttributes.description != undefined) founded_locations.description = modifyAttributes.description;
     }
 
+    /**
+     * Busca personajes en el multiverso según criterios especificados.
+     * @param criteria - Los criterios de búsqueda para los personajes.
+     * @param mode - El modo de ordenamiento para los resultados (por inteligencia o por nombre).
+     * @param order - El orden de ordenamiento (ascendente o descendente).
+     * @returns Un array de personajes que cumplen con los criterios de búsqueda,
+     * ordenados según el modo y orden especificados.
+     */
     searchCharacters(criteria: ICharacterCriteria, mode: SortMode, order: SortOrder): Character[] {
         let characters = this.characters;
 
@@ -223,6 +324,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return found_characters;
     }
 
+    /**
+     * Busca invenciones en el multiverso según criterios especificados.
+     * @param criteria - Los criterios de búsqueda para las invenciones.
+     * @returns Un array de invenciones que cumplen con los criterios de búsqueda.
+     */
     searchInventions(criteria: IInventionCriteria): Invention[] {
         let inventions = this.inventions;
         
@@ -239,6 +345,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return found_inventions;
     }
 
+    /**
+     * Busca ubicaciones en el multiverso según criterios especificados.
+     * @param criteria - Los criterios de búsqueda para las ubicaciones.
+     * @returns Un array de ubicaciones que cumplen con los criterios de búsqueda.
+     */
     searchLocations(criteria: ILocationCriteria): Location[] {
         let locations = this.locations;
         let found_locations: Location[] = [];
@@ -254,6 +365,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return found_locations;
     }
 
+    /**
+     * Busca viajes en el multiverso según criterios especificados.
+     * @param criteria - Los criterios de búsqueda para los viajes.
+     * @returns Un array de viajes que cumplen con los criterios de búsqueda.
+     */
     searchTravel(criteria: ITravelCriteria): Travel[] {
         let travels = this.travels;
         let found_travels: Travel[] = [];
@@ -268,6 +384,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return found_travels;
     }
     
+    /**
+     * Busca las dimensiones alternativas de un personaje en el multiverso.
+     * @param name - El nombre del personaje para el cual se buscan las dimensiones alternativas.
+     * @returns Un array de dimensiones que cumplen con los criterios de búsqueda.
+     */
     searchAlternativeLocationOfACharacter(name: string): Dimension[] {
         let characters = this._characters;
 
@@ -282,6 +403,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return founded_dimensions;
     }
 
+    /**
+     * Genera un informe de las dimensiones activas en el multiverso.
+     * @returns El informe de dimensiones activas.
+     */
     getDimensionReport():string {
         const active = this._dimensions.filter((d) => d.state.toLowerCase() === 'active');
         const report = active.map((d) => ({ "Id": d.id, "TechnologyLevel": d.technologyLevel}));
@@ -294,6 +419,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return str;
     }
 
+    /**
+     * Genera un informe de las invenciones peligrosas en el multiverso.
+     * @param danger - El nivel de peligro mínimo para incluir en el informe.
+     * @returns El informe de invenciones peligrosas.
+     */
     getInventionsReport(danger: number): string {
         const dangerous = this._inventions.filter((d) => d.dangerLevel > danger );
         const report = dangerous.map((d) => ({ "Id": d.id, "DangerousLevel": d.dangerLevel, "Localization": d.inventionLocation }));
@@ -306,6 +436,10 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return str;
     }
 
+    /**
+     * Genera un informe de los personajes en el multiverso.
+     * @returns El informe de personajes.
+     */
     getCharacterReport(): string {
         const names: string[] = this._characters.map((c) => c.name);
         const unique = new Set(names);
@@ -327,6 +461,11 @@ export class MultiverseManager implements IAdd, IRemove, ISearchElements, IModif
         return str;
     }
 
+    /**
+     * Genera un informe del historial de viajes de un personaje en el multiverso.
+     * @param character - El personaje para el cual se genera el informe.
+     * @returns El informe del historial de viajes.
+     */
     getTravelHistoryReport(character: Character): string {
         const report = this.travels.filter((d) => d.character === character);
         let str: string = "";

@@ -1,4 +1,4 @@
-import { DimensionAttributes } from "../interfaces/IDimensionAttributes.js";
+import { DimensionAttributes } from "../interfaces/Attributes/IDimensionAttributes.js";
 import { DimensionState } from "../types/DimensionState.js";
 
 /**

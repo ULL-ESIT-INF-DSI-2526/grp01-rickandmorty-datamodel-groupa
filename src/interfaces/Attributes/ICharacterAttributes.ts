@@ -1,6 +1,6 @@
-import { Dimension } from "../classes/Dimension.js";
-import { Species } from "../classes/Species.js";
-import { CharacterState } from "../types/CharacterState.js";
+import { Dimension } from "../../classes/Dimension.js";
+import { Species } from "../../classes/Species.js";
+import { CharacterState } from "../../types/CharacterState.js";
 import { GeneralAttributes } from "./IGeneralAttributes.js";
 
 /**

@@ -7,12 +7,13 @@ import { Dimension } from "./Dimension.js";
  */
 export class Travel implements TravelAttributes {
   /**
-   * 
-   * @param originDimension 
-   * @param destinyDimension 
-   * @param character 
-   * @param date 
-   * @param motive 
+   * Constructor de la clase Travel que recibe los atributos necesarios para crear un viaje
+   * @param id - Identificador único del viaje
+   * @param originDimension - Dimensión de origen del viaje
+   * @param destinyDimension - Dimensión de destino del viaje
+   * @param character - Personaje que realiza el viaje
+   * @param date - Fecha del viaje
+   * @param motive - Motivo del viaje
    */
   constructor(
     public id: string,

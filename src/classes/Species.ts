@@ -1,4 +1,4 @@
-import { SpeciesAttributes } from "../interfaces/ISpeciesAttributes.js";
+import { SpeciesAttributes } from "../interfaces/Attributes/ISpeciesAttributes.js";
 import { Dimension } from "./Dimension.js";
 
 /**
