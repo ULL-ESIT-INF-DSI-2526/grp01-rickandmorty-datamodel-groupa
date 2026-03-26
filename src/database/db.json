@@ -1,32 +1,2159 @@
 {
-  "characters": [],
   "dimensions": [
     {
-      "id": "asd",
-      "name": "asd",
+      "id": "C-137",
+      "name": "Earth",
+      "state": "active",
+      "technologyLevel": 5,
+      "description": "The original dimension"
+    },
+    {
+      "id": "C-500A",
+      "name": "Cronenberg World",
       "state": "active",
       "technologyLevel": 4,
-      "description": "asd"
+      "description": "A dimension where everyone is a Cronenberg"
+    },
+    {
+      "id": "C-500B",
+      "name": "Gromflomite World",
+      "state": "active",
+      "technologyLevel": 2,
+      "description": "A dimension where everyone is a Gromflomite"
+    },
+    {
+      "id": "C-500C",
+      "name": "Gazorpazorp World",
+      "state": "active",
+      "technologyLevel": 8,
+      "description": "A dimension where everyone is a Gazorpian"
+    },
+    {
+      "id": "C-500D",
+      "name": "Bird World",
+      "state": "active",
+      "technologyLevel": 4,
+      "description": "A dimension where everyone is a Birdperson"
+    },
+    {
+      "id": "C-500E",
+      "name": "Meeseeks Box World",
+      "state": "active",
+      "technologyLevel": 6,
+      "description": "A dimension of pure Meeseeks energy"
+    },
+    {
+      "id": "C-500F",
+      "name": "Pluto World",
+      "state": "active",
+      "technologyLevel": 3,
+      "description": "A dimension where everyone is a Plutonian"
+    },
+    {
+      "id": "C-500G",
+      "name": "Unity's Planet",
+      "state": "active",
+      "technologyLevel": 9,
+      "description": "A dimension assimilated by Unity"
+    },
+    {
+      "id": "C-500H",
+      "name": "Paramian Dimension",
+      "state": "active",
+      "technologyLevel": 7,
+      "description": "A dimension where everyone is a Paramian"
+    },
+    {
+      "id": "35-C",
+      "name": "Alien Dimension",
+      "state": "active",
+      "technologyLevel": 4,
+      "description": "A dimension populated by various alien species"
+    },
+    {
+      "id": "D-99",
+      "name": "Fantasy World",
+      "state": "active",
+      "technologyLevel": 1,
+      "description": "A dimension ruled by medieval fantasy logic"
+    },
+    {
+      "id": "D-100",
+      "name": "Dream World",
+      "state": "active",
+      "technologyLevel": 2,
+      "description": "A dimension of terror inside dreams"
+    },
+    {
+      "id": "J19Z7",
+      "name": "Doofus Dimension",
+      "state": "active",
+      "technologyLevel": 4,
+      "description": "The home dimension of Doofus Rick"
+    },
+    {
+      "id": "C-131",
+      "name": "Replacement Earth",
+      "state": "active",
+      "technologyLevel": 5,
+      "description": "The dimension Rick and Morty moved to after the Cronenberg incident"
+    },
+    {
+      "id": "Microverse",
+      "name": "Microverse",
+      "state": "active",
+      "technologyLevel": 6,
+      "description": "A universe created inside a battery"
     }
   ],
-  "inventions": [],
-  "locations": [],
   "species": [
     {
-      "id": "asd",
-      "name": "asd",
+      "id": "S-001",
+      "name": "Human",
       "origin": {
-        "id": "asd",
-        "name": "asd",
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "type": "Mammal",
+      "lifeExpectancy": 80,
+      "description": "The most common species on Earth"
+    },
+    {
+      "id": "S-002",
+      "name": "Cronenberg",
+      "origin": {
+        "id": "C-500A",
+        "name": "Cronenberg World",
         "state": "active",
         "technologyLevel": 4,
-        "description": "asd"
+        "description": "A dimension where everyone is a Cronenberg"
       },
-      "type": "asd",
-      "lifeExpectancy": 5,
-      "description": "asd"
+      "type": "Mutant",
+      "lifeExpectancy": 50,
+      "description": "A horribly mutated, fleshy species"
+    },
+    {
+      "id": "S-003",
+      "name": "Gromflomite",
+      "origin": {
+        "id": "C-500B",
+        "name": "Gromflomite World",
+        "state": "active",
+        "technologyLevel": 2,
+        "description": "A dimension where everyone is a Gromflomite"
+      },
+      "type": "Insectoid",
+      "lifeExpectancy": 100,
+      "description": "An insectoid species that runs the Galactic Federation"
+    },
+    {
+      "id": "S-004",
+      "name": "Gazorpian",
+      "origin": {
+        "id": "C-500C",
+        "name": "Gazorpazorp World",
+        "state": "active",
+        "technologyLevel": 8,
+        "description": "A dimension where everyone is a Gazorpian"
+      },
+      "type": "Humanoid/Reptilian",
+      "lifeExpectancy": 70,
+      "description": "A species with a strict gender divide and violent tendencies"
+    },
+    {
+      "id": "S-005",
+      "name": "Avian",
+      "origin": {
+        "id": "C-500D",
+        "name": "Bird World",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension where everyone is a Birdperson"
+      },
+      "type": "Avian",
+      "lifeExpectancy": 90,
+      "description": "A wise bird-like humanoid species"
+    },
+    {
+      "id": "S-006",
+      "name": "Meeseeks",
+      "origin": {
+        "id": "C-500E",
+        "name": "Meeseeks Box World",
+        "state": "active",
+        "technologyLevel": 6,
+        "description": "A dimension of pure Meeseeks energy"
+      },
+      "type": "Construct",
+      "lifeExpectancy": 1,
+      "description": "A blue creature created to fulfill a single purpose"
+    },
+    {
+      "id": "S-007",
+      "name": "Alien",
+      "origin": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "type": "Extraterrestrial",
+      "lifeExpectancy": 200,
+      "description": "A catch-all category for various alien lifeforms"
+    },
+    {
+      "id": "S-008",
+      "name": "Squanch",
+      "origin": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "type": "Feline",
+      "lifeExpectancy": 60,
+      "description": "A cat-like species capable of growing into giants"
+    },
+    {
+      "id": "S-009",
+      "name": "Hive Mind",
+      "origin": {
+        "id": "C-500G",
+        "name": "Unity's Planet",
+        "state": "active",
+        "technologyLevel": 9,
+        "description": "A dimension assimilated by Unity"
+      },
+      "type": "Collective Consciousness",
+      "lifeExpectancy": 1000,
+      "description": "A singular consciousness that takes over entire planets"
+    },
+    {
+      "id": "S-010",
+      "name": "Dream Creature",
+      "origin": {
+        "id": "D-100",
+        "name": "Dream World",
+        "state": "active",
+        "technologyLevel": 2,
+        "description": "A dimension of terror inside dreams"
+      },
+      "type": "Nightmare",
+      "lifeExpectancy": 100,
+      "description": "Entities that exist primarily within the dreamscape"
     }
   ],
-  "experiments": [],
-  "travels": []
+  "characters": [
+    {
+      "id": "C-001",
+      "name": "Rick Sanchez",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 10,
+      "description": "A genius scientist"
+    },
+    {
+      "id": "C-002",
+      "name": "Morty Smith",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 4,
+      "description": "Rick's anxious grandson"
+    },
+    {
+      "id": "C-003",
+      "name": "Summer Smith",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 6,
+      "description": "Morty's older sister"
+    },
+    {
+      "id": "C-004",
+      "name": "Beth Smith",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 7,
+      "description": "Rick's daughter and a horse surgeon"
+    },
+    {
+      "id": "C-005",
+      "name": "Jerry Smith",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 3,
+      "description": "Morty's insecure father"
+    },
+    {
+      "id": "C-006",
+      "name": "Birdperson",
+      "species": {
+        "id": "S-005",
+        "name": "Avian",
+        "origin": {
+          "id": "C-500D",
+          "name": "Bird World",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension where everyone is a Birdperson"
+        },
+        "type": "Avian",
+        "lifeExpectancy": 90,
+        "description": "A wise bird-like humanoid species"
+      },
+      "originDimension": {
+        "id": "C-500D",
+        "name": "Bird World",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension where everyone is a Birdperson"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 8,
+      "description": "Rick's best friend"
+    },
+    {
+      "id": "C-007",
+      "name": "Squanchy",
+      "species": {
+        "id": "S-008",
+        "name": "Squanch",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Feline",
+        "lifeExpectancy": 60,
+        "description": "A cat-like species capable of growing into giants"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 6,
+      "description": "Rick's party friend"
+    },
+    {
+      "id": "C-008",
+      "name": "Mr. Poopybutthole",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 7,
+      "description": "A long-time family friend"
+    },
+    {
+      "id": "C-009",
+      "name": "Krombopulos Michael",
+      "species": {
+        "id": "S-003",
+        "name": "Gromflomite",
+        "origin": {
+          "id": "C-500B",
+          "name": "Gromflomite World",
+          "state": "active",
+          "technologyLevel": 2,
+          "description": "A dimension where everyone is a Gromflomite"
+        },
+        "type": "Insectoid",
+        "lifeExpectancy": 100,
+        "description": "An insectoid species that runs the Galactic Federation"
+      },
+      "originDimension": {
+        "id": "C-500B",
+        "name": "Gromflomite World",
+        "state": "active",
+        "technologyLevel": 2,
+        "description": "A dimension where everyone is a Gromflomite"
+      },
+      "state": "dead",
+      "affiliation": "Galactic Federation",
+      "inteligenceLevel": 6,
+      "description": "An upbeat assassin"
+    },
+    {
+      "id": "C-010",
+      "name": "Evil Morty",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "Citadel of Ricks",
+      "inteligenceLevel": 9,
+      "description": "A brilliant and ruthless variant of Morty"
+    },
+    {
+      "id": "C-011",
+      "name": "Doofus Rick",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "J19Z7",
+        "name": "Doofus Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "The home dimension of Doofus Rick"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 4,
+      "description": "A surprisingly kind and simple Rick"
+    },
+    {
+      "id": "C-012",
+      "name": "Mr. Meeseeks",
+      "species": {
+        "id": "S-006",
+        "name": "Meeseeks",
+        "origin": {
+          "id": "C-500E",
+          "name": "Meeseeks Box World",
+          "state": "active",
+          "technologyLevel": 6,
+          "description": "A dimension of pure Meeseeks energy"
+        },
+        "type": "Construct",
+        "lifeExpectancy": 1,
+        "description": "A blue creature created to fulfill a single purpose"
+      },
+      "originDimension": {
+        "id": "C-500E",
+        "name": "Meeseeks Box World",
+        "state": "active",
+        "technologyLevel": 6,
+        "description": "A dimension of pure Meeseeks energy"
+      },
+      "state": "dead",
+      "affiliation": "none",
+      "inteligenceLevel": 5,
+      "description": "Existence is pain"
+    },
+    {
+      "id": "C-013",
+      "name": "Scary Terry",
+      "species": {
+        "id": "S-010",
+        "name": "Dream Creature",
+        "origin": {
+          "id": "D-100",
+          "name": "Dream World",
+          "state": "active",
+          "technologyLevel": 2,
+          "description": "A dimension of terror inside dreams"
+        },
+        "type": "Nightmare",
+        "lifeExpectancy": 100,
+        "description": "Entities that exist primarily within the dreamscape"
+      },
+      "originDimension": {
+        "id": "D-100",
+        "name": "Dream World",
+        "state": "active",
+        "technologyLevel": 2,
+        "description": "A dimension of terror inside dreams"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 4,
+      "description": "A legally-safe dream monster"
+    },
+    {
+      "id": "C-014",
+      "name": "Revolio Clockberg Jr.",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 6,
+      "description": "Also known as Gearhead"
+    },
+    {
+      "id": "C-015",
+      "name": "Tammy Guetermann",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "Galactic Federation",
+      "inteligenceLevel": 7,
+      "description": "An undercover deep-cover agent"
+    },
+    {
+      "id": "C-016",
+      "name": "Snuffles",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 8,
+      "description": "The family dog who gained super intelligence"
+    },
+    {
+      "id": "C-017",
+      "name": "Zeep Xanflorp",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "Microverse",
+        "name": "Microverse",
+        "state": "active",
+        "technologyLevel": 6,
+        "description": "A universe created inside a battery"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 9,
+      "description": "A scientist from inside Rick's car battery"
+    },
+    {
+      "id": "C-018",
+      "name": "Principal Vagina",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 4,
+      "description": "The principal of Harry Herpson High School"
+    },
+    {
+      "id": "C-019",
+      "name": "Mr. Goldenfold",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 5,
+      "description": "Morty's math teacher"
+    },
+    {
+      "id": "C-020",
+      "name": "Dr. Wong",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 8,
+      "description": "A highly perceptive family therapist"
+    },
+    {
+      "id": "C-021",
+      "name": "Jaguar",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 6,
+      "description": "A tough rebel fighter"
+    },
+    {
+      "id": "C-022",
+      "name": "Sleepy Gary",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "state": "dead",
+      "affiliation": "Alien Parasites",
+      "inteligenceLevel": 5,
+      "description": "An alien parasite projecting as Beth's husband"
+    },
+    {
+      "id": "C-023",
+      "name": "Abradolf Lincler",
+      "species": {
+        "id": "S-002",
+        "name": "Cronenberg",
+        "origin": {
+          "id": "C-500A",
+          "name": "Cronenberg World",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension where everyone is a Cronenberg"
+        },
+        "type": "Mutant",
+        "lifeExpectancy": 50,
+        "description": "A horribly mutated, fleshy species"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "dead",
+      "affiliation": "none",
+      "inteligenceLevel": 5,
+      "description": "A genetic mix of Lincoln and Hitler"
+    },
+    {
+      "id": "C-024",
+      "name": "Unity",
+      "species": {
+        "id": "S-009",
+        "name": "Hive Mind",
+        "origin": {
+          "id": "C-500G",
+          "name": "Unity's Planet",
+          "state": "active",
+          "technologyLevel": 9,
+          "description": "A dimension assimilated by Unity"
+        },
+        "type": "Collective Consciousness",
+        "lifeExpectancy": 1000,
+        "description": "A singular consciousness that takes over entire planets"
+      },
+      "originDimension": {
+        "id": "C-500G",
+        "name": "Unity's Planet",
+        "state": "active",
+        "technologyLevel": 9,
+        "description": "A dimension assimilated by Unity"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 9,
+      "description": "A powerful collective consciousness and Rick's ex"
+    },
+    {
+      "id": "C-025",
+      "name": "King Flippy Nips",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "C-500F",
+        "name": "Pluto World",
+        "state": "active",
+        "technologyLevel": 3,
+        "description": "A dimension where everyone is a Plutonian"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 5,
+      "description": "The ruler of Pluto"
+    },
+    {
+      "id": "C-026",
+      "name": "Arthricia",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 6,
+      "description": "A resident of the Purge Planet"
+    },
+    {
+      "id": "C-027",
+      "name": "Beta-Seven",
+      "species": {
+        "id": "S-009",
+        "name": "Hive Mind",
+        "origin": {
+          "id": "C-500G",
+          "name": "Unity's Planet",
+          "state": "active",
+          "technologyLevel": 9,
+          "description": "A dimension assimilated by Unity"
+        },
+        "type": "Collective Consciousness",
+        "lifeExpectancy": 1000,
+        "description": "A singular consciousness that takes over entire planets"
+      },
+      "originDimension": {
+        "id": "C-500G",
+        "name": "Unity's Planet",
+        "state": "active",
+        "technologyLevel": 9,
+        "description": "A dimension assimilated by Unity"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 8,
+      "description": "Another hive mind"
+    },
+    {
+      "id": "C-028",
+      "name": "Planetina",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "none",
+      "inteligenceLevel": 6,
+      "description": "An elemental superhero"
+    },
+    {
+      "id": "C-029",
+      "name": "Space Cruiser AI",
+      "species": {
+        "id": "S-007",
+        "name": "Alien",
+        "origin": {
+          "id": "35-C",
+          "name": "Alien Dimension",
+          "state": "active",
+          "technologyLevel": 4,
+          "description": "A dimension populated by various alien species"
+        },
+        "type": "Extraterrestrial",
+        "lifeExpectancy": 200,
+        "description": "A catch-all category for various alien lifeforms"
+      },
+      "originDimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "state": "alive",
+      "affiliation": "Rick",
+      "inteligenceLevel": 9,
+      "description": "The artificial intelligence of Rick's ship"
+    },
+    {
+      "id": "C-030",
+      "name": "Cop Morty",
+      "species": {
+        "id": "S-001",
+        "name": "Human",
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "type": "Mammal",
+        "lifeExpectancy": 80,
+        "description": "The most common species on Earth"
+      },
+      "originDimension": {
+        "id": "J19Z7",
+        "name": "Doofus Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "The home dimension of Doofus Rick"
+      },
+      "state": "alive",
+      "affiliation": "Citadel Police",
+      "inteligenceLevel": 5,
+      "description": "A Morty working as a police officer"
+    }
+  ],
+  "locations": [
+    {
+      "id": "L-001",
+      "name": "Earth (C-137)",
+      "type": "Planet",
+      "dimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "aproxPopulation": 7000000000,
+      "description": "The original home of Rick and Morty."
+    },
+    {
+      "id": "L-002",
+      "name": "Citadel of Ricks",
+      "type": "Space Station",
+      "dimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "aproxPopulation": 5000000,
+      "description": "The secret headquarters for the Council of Ricks."
+    },
+    {
+      "id": "L-003",
+      "name": "Cronenberg Earth",
+      "type": "Planet",
+      "dimension": {
+        "id": "C-500A",
+        "name": "Cronenberg World",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension where everyone is a Cronenberg"
+      },
+      "aproxPopulation": 2000000,
+      "description": "Earth after Rick's love potion mutated the entire population."
+    },
+    {
+      "id": "L-004",
+      "name": "Anatomy Park",
+      "type": "Microverse",
+      "dimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "aproxPopulation": 500,
+      "description": "A microscopic theme park built inside a homeless man named Ruben."
+    },
+    {
+      "id": "L-005",
+      "name": "Gazorpazorp",
+      "type": "Planet",
+      "dimension": {
+        "id": "C-500C",
+        "name": "Gazorpazorp World",
+        "state": "active",
+        "technologyLevel": 8,
+        "description": "A dimension where everyone is a Gazorpian"
+      },
+      "aproxPopulation": 3000000000,
+      "description": "A hostile planet ruled by female Gazorpians."
+    },
+    {
+      "id": "L-006",
+      "name": "Bird World",
+      "type": "Planet",
+      "dimension": {
+        "id": "C-500D",
+        "name": "Bird World",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension where everyone is a Birdperson"
+      },
+      "aproxPopulation": 1500000000,
+      "description": "The homeworld of Birdperson."
+    },
+    {
+      "id": "L-007",
+      "name": "Microverse",
+      "type": "Microverse",
+      "dimension": {
+        "id": "Microverse",
+        "name": "Microverse",
+        "state": "active",
+        "technologyLevel": 6,
+        "description": "A universe created inside a battery"
+      },
+      "aproxPopulation": 12000000000,
+      "description": "A tiny universe inside Rick's car battery."
+    },
+    {
+      "id": "L-008",
+      "name": "Miniverse",
+      "type": "Microverse",
+      "dimension": {
+        "id": "Microverse",
+        "name": "Microverse",
+        "state": "active",
+        "technologyLevel": 6,
+        "description": "A universe created inside a battery"
+      },
+      "aproxPopulation": 8000000000,
+      "description": "A tiny universe inside Zeep Xanflorp's battery."
+    },
+    {
+      "id": "L-009",
+      "name": "Teenyverse",
+      "type": "Microverse",
+      "dimension": {
+        "id": "Microverse",
+        "name": "Microverse",
+        "state": "active",
+        "technologyLevel": 6,
+        "description": "A universe created inside a battery"
+      },
+      "aproxPopulation": 4000000000,
+      "description": "A tiny universe inside Kyle's battery."
+    },
+    {
+      "id": "L-010",
+      "name": "Purge Planet",
+      "type": "Planet",
+      "dimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "aproxPopulation": 900000000,
+      "description": "A peaceful planet that has one night a year of consequence-free murder."
+    },
+    {
+      "id": "L-011",
+      "name": "Nuptia 4",
+      "type": "Space Station",
+      "dimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "aproxPopulation": 15000,
+      "description": "The most successful couples counseling facility in the galaxy."
+    },
+    {
+      "id": "L-012",
+      "name": "Pluto",
+      "type": "Dwarf Planet",
+      "dimension": {
+        "id": "C-500F",
+        "name": "Pluto World",
+        "state": "active",
+        "technologyLevel": 3,
+        "description": "A dimension where everyone is a Plutonian"
+      },
+      "aproxPopulation": 4500000000,
+      "description": "A celestial body dealing with serious planetary status anxiety."
+    },
+    {
+      "id": "L-013",
+      "name": "Shoney's",
+      "type": "Simulation",
+      "dimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "aproxPopulation": 0,
+      "description": "A simulation of a family restaurant existing in Rick's mind."
+    },
+    {
+      "id": "L-014",
+      "name": "Gromflom Prime",
+      "type": "Planet",
+      "dimension": {
+        "id": "C-500B",
+        "name": "Gromflomite World",
+        "state": "active",
+        "technologyLevel": 2,
+        "description": "A dimension where everyone is a Gromflomite"
+      },
+      "aproxPopulation": 50000000000,
+      "description": "The capital planet of the Galactic Federation."
+    },
+    {
+      "id": "L-015",
+      "name": "Earth (Replacement)",
+      "type": "Planet",
+      "dimension": {
+        "id": "C-131",
+        "name": "Replacement Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The dimension Rick and Morty moved to after the Cronenberg incident"
+      },
+      "aproxPopulation": 7000000000,
+      "description": "The dimension Rick and Morty moved to after the Cronenberg incident."
+    },
+    {
+      "id": "L-016",
+      "name": "Froopyland",
+      "type": "Pocket Dimension",
+      "dimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "aproxPopulation": 5000,
+      "description": "A procedurally generated child's play world built by Rick for Beth."
+    },
+    {
+      "id": "L-017",
+      "name": "Jerryboree",
+      "type": "Daycare",
+      "dimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "aproxPopulation": 2000,
+      "description": "An unregistered cross-temporal daycare for Jerrys."
+    },
+    {
+      "id": "L-018",
+      "name": "Blips and Chitz",
+      "type": "Arcade",
+      "dimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "aproxPopulation": 35000,
+      "description": "An intergalactic arcade featuring the game Roy: A Life Well Lived."
+    },
+    {
+      "id": "L-019",
+      "name": "Gear World",
+      "type": "Planet",
+      "dimension": {
+        "id": "35-C",
+        "name": "Alien Dimension",
+        "state": "active",
+        "technologyLevel": 4,
+        "description": "A dimension populated by various alien species"
+      },
+      "aproxPopulation": 2500000000,
+      "description": "The home planet of Revolio Clockberg Jr., made entirely of gears."
+    },
+    {
+      "id": "L-020",
+      "name": "Post-Apocalyptic Earth",
+      "type": "Planet",
+      "dimension": {
+        "id": "C-137",
+        "name": "Earth",
+        "state": "active",
+        "technologyLevel": 5,
+        "description": "The original dimension"
+      },
+      "aproxPopulation": 500000,
+      "description": "A version of Earth heavily inspired by Mad Max."
+    }
+  ],
+  "inventions": [
+    {
+      "id": "I-001",
+      "name": "Portal Gun",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Device",
+      "dangerLevel": 10,
+      "description": "A device that allows travel between different dimensions and universes.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "on"
+    },
+    {
+      "id": "I-002",
+      "name": "Space Cruiser",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Vehicle",
+      "dangerLevel": 8,
+      "description": "Rick's flying vehicle, made from garbage but capable of faster-than-light travel.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "off"
+    },
+    {
+      "id": "I-003",
+      "name": "Microverse Battery",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Power Source",
+      "dangerLevel": 7,
+      "description": "A battery containing an entire miniature universe that generates power for Rick's cruiser.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "on"
+    },
+    {
+      "id": "I-004",
+      "name": "Miniverse Battery",
+      "inventor": {
+        "id": "C-017",
+        "name": "Zeep Xanflorp",
+        "species": {
+          "id": "S-007",
+          "name": "Alien",
+          "originDimension": {
+            "id": "35-C",
+            "name": "Alien Dimension",
+            "state": "active",
+            "technologyLevel": 4,
+            "description": "A dimension populated by various alien species"
+          },
+          "type": "Extraterrestrial",
+          "lifeExpectancy": 200,
+          "description": "A catch-all category for various alien lifeforms"
+        },
+        "origin": {
+          "id": "Microverse",
+          "name": "Microverse",
+          "state": "active",
+          "technologyLevel": 6,
+          "description": "A universe created inside a battery"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 9,
+        "description": "A scientist from inside Rick's car battery"
+      },
+      "type": "Power Source",
+      "dangerLevel": 7,
+      "description": "A battery created by Zeep to power his own world, located inside the Microverse.",
+      "inventionLocation": {
+        "id": "L-007",
+        "name": "Microverse",
+        "type": "Microverse",
+        "dimension": {
+          "id": "Microverse",
+          "name": "Microverse",
+          "state": "active",
+          "technologyLevel": 6,
+          "description": "A universe created inside a battery"
+        },
+        "description": "A tiny universe inside Rick's car battery."
+      },
+      "state": "on"
+    },
+    {
+      "id": "I-005",
+      "name": "Mind-Blower",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Machine",
+      "dangerLevel": 8,
+      "description": "A device used to erase specific memories and store them in glowing vials.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "off"
+    },
+    {
+      "id": "I-006",
+      "name": "Interdimensional Cable Box",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Device",
+      "dangerLevel": 3,
+      "description": "A cable box modified to receive television broadcasts from any dimension.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "on"
+    },
+    {
+      "id": "I-007",
+      "name": "Butter Robot",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Robot",
+      "dangerLevel": 1,
+      "description": "A small robot created with the sole, depressing purpose of passing butter.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "off"
+    },
+    {
+      "id": "I-008",
+      "name": "Cognition Amplifier",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Device",
+      "dangerLevel": 7,
+      "description": "A helmet that drastically increases the intelligence of whoever wears it, originally used on Snuffles.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "off"
+    },
+    {
+      "id": "I-009",
+      "name": "Mind-Control Eyepatch",
+      "inventor": {
+        "id": "C-010",
+        "name": "Evil Morty",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "Citadel of Ricks",
+        "inteligenceLevel": 9,
+        "description": "A brilliant and ruthless variant of Morty"
+      },
+      "type": "Device",
+      "dangerLevel": 9,
+      "description": "A hidden transmitter used to remote-control an animatronic Evil Rick.",
+      "inventionLocation": {
+        "id": "L-002",
+        "name": "Citadel of Ricks",
+        "type": "Space Station",
+        "dimension": {
+          "id": "Interdimensional",
+          "name": "Interdimensional Space",
+          "state": "active",
+          "technologyLevel": 10,
+          "description": "The space between dimensions"
+        },
+        "description": "The secret headquarters for the Council of Ricks."
+      },
+      "state": "on"
+    },
+    {
+      "id": "I-010",
+      "name": "Love Potion",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Chemical",
+      "dangerLevel": 10,
+      "description": "A serum utilizing oxytocin extracted from a vole, which led to the Cronenberg disaster.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "off"
+    },
+    {
+      "id": "I-011",
+      "name": "Purge Suit",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Weaponized Armor",
+      "dangerLevel": 9,
+      "description": "Highly advanced combat armor summoned from orbit, equipped with devastating weaponry.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "off"
+    },
+    {
+      "id": "I-012",
+      "name": "Dream Inceptor",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Device",
+      "dangerLevel": 6,
+      "description": "A device that allows the user to enter and navigate another person's dreams.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "on"
+    },
+    {
+      "id": "I-013",
+      "name": "Operation Phoenix Vats",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Cloning Facility",
+      "dangerLevel": 7,
+      "description": "Vats containing clones of Rick to upload his consciousness into if he dies.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "on"
+    },
+    {
+      "id": "I-014",
+      "name": "Curse Purge Plus Scanner",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Device",
+      "dangerLevel": 4,
+      "description": "Used to detect and remove demonic curses from items bought at Needful Things.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "off"
+    },
+    {
+      "id": "I-015",
+      "name": "Somnambulator",
+      "inventor": {
+        "id": "C-001",
+        "name": "Rick Sanchez",
+        "species": {
+          "id": "S-001",
+          "name": "Human",
+          "originDimension": {
+            "id": "C-137",
+            "name": "Earth",
+            "state": "active",
+            "technologyLevel": 5,
+            "description": "The original dimension"
+          },
+          "type": "Mammal",
+          "lifeExpectancy": 80,
+          "description": "The most common species on Earth"
+        },
+        "origin": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "state": "alive",
+        "affiliation": "none",
+        "inteligenceLevel": 10,
+        "description": "A genius scientist"
+      },
+      "type": "Machine",
+      "dangerLevel": 5,
+      "description": "A machine that puts the user's body on autopilot to complete complex tasks while sleeping.",
+      "inventionLocation": {
+        "id": "L-001",
+        "name": "Earth (C-137)",
+        "type": "Planet",
+        "dimension": {
+          "id": "C-137",
+          "name": "Earth",
+          "state": "active",
+          "technologyLevel": 5,
+          "description": "The original dimension"
+        },
+        "description": "The original home of Rick and Morty."
+      },
+      "state": "on"
+    }
+  ],
+  "travels": [],
+  "experiments": []
 }

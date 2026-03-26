@@ -9,11 +9,11 @@ const adapter = new JSONFile<IDataBase>("src/database/db.json");
 
 /** Instancia de la base de datos. */
 export const db = new Low<IDataBase>(adapter, {
-    characters: [],
     dimensions: [],
-    inventions: [],
-    locations: [],
     species: [],
+    characters: [],
+    locations: [],
+    inventions: [],
     experiments: [],
     travels: []
 });
@@ -23,6 +23,6 @@ export const db = new Low<IDataBase>(adapter, {
  */
 export async function initializeDB() {
     await db.read();
-    if (!db.data) db.data = { characters: [], dimensions: [], inventions: [], locations: [], species: [], experiments: [], travels: [] };
+    if (!db.data) db.data = { dimensions: [], species: [], characters: [], locations: [],  inventions: [],  experiments: [], travels: [] };
     await db.write();
 }

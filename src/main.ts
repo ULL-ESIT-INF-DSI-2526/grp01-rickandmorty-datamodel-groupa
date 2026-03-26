@@ -45,12 +45,12 @@ async function main() {
   await initializeDB();
   // cargar datos de la base de datos al gestor del multiverso
   const data = await db.read();
-  if (db.data) {
-    db.data.characters.forEach((c) => multiverseManager.addCharacter(c));
+  if (db.data) {   
     db.data.dimensions.forEach((d) => multiverseManager.addDimension(d));
-    db.data.inventions.forEach((i) => multiverseManager.addInvention(i));
-    db.data.locations.forEach((l) => multiverseManager.addLocation(l));
     db.data.species.forEach((s) => multiverseManager.addSpecie(s));
+    db.data.characters.forEach((c) => multiverseManager.addCharacter(c));
+    db.data.locations.forEach((l) => multiverseManager.addLocation(l));
+    db.data.inventions.forEach((i) => multiverseManager.addInvention(i));
     db.data.travels.forEach((t) => multiverseManager.addTravel(t));
     db.data.experiments.forEach((e) => multiverseManager.addExperiment(e));
   }
